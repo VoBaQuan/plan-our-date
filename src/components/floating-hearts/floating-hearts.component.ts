@@ -1,18 +1,13 @@
 import { Component, Renderer2 } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { RouterOutlet } from '@angular/router';
-import { FloatingHeartsComponent } from '../components/floating-hearts/floating-hearts.component';
 
 @Component({
-  selector: 'app-root',
+  selector: 'app-floating-hearts',
   standalone: true,
-  imports: [CommonModule, RouterOutlet, FloatingHeartsComponent],
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  imports: [],
+  templateUrl: './floating-hearts.component.html',
+  styleUrl: './floating-hearts.component.scss'
 })
-export class AppComponent {
-  title = 'my-love';
-
+export class FloatingHeartsComponent {
   constructor(private renderer: Renderer2) { }
 
   ngOnInit(): void {
@@ -28,13 +23,13 @@ export class AppComponent {
     const heart = this.renderer.createElement('div');
     this.renderer.addClass(heart, 'heart');
 
-    // Random position và animation duration
+    // Random position + animation duration
     (heart as HTMLElement).style.left = Math.random() * window.innerWidth + 'px';
     (heart as HTMLElement).style.animationDuration = (3 + Math.random() * 5) + 's';
 
     this.renderer.appendChild(container, heart);
 
-    // Xóa heart sau khi animation kết thúc
+    // Remove sau khi animation xong
     setTimeout(() => {
       this.renderer.removeChild(container, heart);
     }, 8000);
