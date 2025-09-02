@@ -13,7 +13,7 @@ export class FloatingHeartsComponent {
   ngOnInit(): void {
     setInterval(() => {
       this.createHeart();
-    }, 300);
+    }, 800);
   }
 
   createHeart() {
