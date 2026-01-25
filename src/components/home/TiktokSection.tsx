@@ -1,4 +1,4 @@
-import video from '../assets/video/journey.mp4';
+import video from '../../assets/video/journey.mp4';
 
 function TiktokSection() {
    return (

@@ -1,17 +1,26 @@
-import hero from '../assets/image/hugyou.jpg';
-import landing from '../assets/image/kissingyou.jpg';
-import boy1 from '../assets/image/kissing.png';
-import boy2 from '../assets/image/kiss.png';
-import girl from '../assets/image/couple.png';
+import hero from '../../assets/image/hugyou.jpg';
+import landing from '../../assets/image/kissingyou.jpg';
+import boy1 from '../../assets/image/kissing.png';
+import boy2 from '../../assets/image/kiss.png';
+import girl from '../../assets/image/couple.png';
+import { useNavigate } from 'react-router-dom';
 
 
 function Header() {
+   const navigate = useNavigate();
+
+   const startInvite = () => {
+      navigate('invite')
+   }
+
    return (
       <header className="hero-section">
          <div className="hero-content">
             <h1>You just stay beautiful, I’ll take care of the rest</h1>
             {/* <p className="hero-tagline">We handle the details—you focus on the romance!</p> */}
-            <a href="/invite/demo" className="cta-button-large">
+            <a
+               className="cta-button-large"
+               onClick={startInvite}>
             Continuing our journey of love
             </a>
             <div className="user-proof">

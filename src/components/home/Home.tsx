@@ -1,12 +1,12 @@
-import Navbar from './Navbar'
-import LiquidBackground from './LiquidBackground'
+import Navbar from '../common/Navbar'
+import LiquidBackground from '../common/LiquidBackground'
 import Header from './Header';
 import HowItWorkImage from './HowItWorkImage';
 import BenefitsSection from './BenefitsSection';
 import TiktokSection from './TiktokSection';
-import Footer from './Footer';
+import Footer from '../common/Footer';
 
-function Layout() {
+function Home() {
    return (
       <div>
          <LiquidBackground></LiquidBackground>
@@ -20,4 +20,4 @@ function Layout() {
    )
 }
 
-export default Layout;
+export default Home;
