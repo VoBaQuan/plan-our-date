@@ -4,22 +4,18 @@ function Navbar() {
       <nav>
          <div className="navbar-left">
             <h1>
-               <a href="/">PlanYour.Date</a>
+               Bá Quận
             </h1>
          </div>
-         <div className="navbar-right">
-            <a href="/account/account.html" id="dashboard-icon" style={{display: 'none'}} data-destination="/account/account.html">
-               <i className="fas fa-user-circle"></i>
-            </a>
-            {/* <!-- PŮVODNÍ TLAČÍTKA JSOU PRYČ --> */}
-            {/* <!-- NOVÉ: Jedno tlačítko pro Auth --> */}
-            <div className="nav-links" id="auth-links" style={{display: 'none'}}>
-               <a href="/faq/faq.html">FAQ</a>
-               <button id="get-started-btn" className="btn-auth-glass">Get Started</button>
+         <div className="nav-heart">
+            <div className="heart-icon-glow">
+               <i className="fas fa-heartbeat"></i>
             </div>
-            {/* <!-- Tlačítko Dashboard pro přihlášené uživatele --> */}
-            <a href="/account/account.html" className="btn-auth-glass" id="dashboard-btn" style={{display: 'inline-block'}}>Dashboard</a>
-            <button className="btn" id="logout-btn" style={{display: 'none'}}>LOGOUT</button>
+         </div>
+         <div className="navbar-left">
+            <h1>
+               Khánh Linh
+            </h1>
          </div>
       </nav>
    )

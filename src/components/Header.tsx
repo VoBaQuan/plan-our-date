@@ -1,27 +1,26 @@
-import hero from '../assets/image/hero.webp';
-import landing from '../assets/image/landing.webp';
-import boy1 from '../assets/image/boy1.webp';
-import boy2 from '../assets/image/boy2.webp';
-import girl from '../assets/image/girl.webp';
+import hero from '../assets/image/hugyou.jpg';
+import landing from '../assets/image/kissingyou.jpg';
+import boy1 from '../assets/image/kissing.png';
+import boy2 from '../assets/image/kiss.png';
+import girl from '../assets/image/couple.png';
 
 
 function Header() {
    return (
       <header className="hero-section">
          <div className="hero-content">
-            <h1>Plan Your Next Unforgettable Date in Minutes</h1>
-            <p className="hero-tagline">We handle the details—you focus on the romance!</p>
+            <h1>You just stay beautiful, I’ll take care of the rest</h1>
+            {/* <p className="hero-tagline">We handle the details—you focus on the romance!</p> */}
             <a href="/invite/demo" className="cta-button-large">
-               CREATE A DEMO INVITATION
-               <span className="cta-subtitle">(No Signup Required)</span>
+            Continuing our journey of love
             </a>
             <div className="user-proof">
                <div className="avatars">
                   <img src={boy1} alt="User 1" className="avatar-circle"></img>
-                  <img src={girl} alt="User 2" className="avatar-circle"></img>
                   <img src={boy2} alt="User 3" className="avatar-circle"></img>
+                  <img src={girl} alt="User 2" className="avatar-circle"></img>
                </div>
-               <p>Join <strong>5,000+</strong> happy couples!</p>
+               <p>Give you <strong>9,999+</strong> kisses!</p>
             </div>
          </div>
          <div className="hero-image">

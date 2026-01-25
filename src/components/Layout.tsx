@@ -13,9 +13,9 @@ function Layout() {
          <Navbar></Navbar>
          <Header></Header>
          <HowItWorkImage></HowItWorkImage>
-         <BenefitsSection></BenefitsSection>
+         {/* <BenefitsSection></BenefitsSection> */}
          <TiktokSection></TiktokSection>
-         <Footer></Footer>
+         {/* <Footer></Footer> */}
       </div>
    )
 }
