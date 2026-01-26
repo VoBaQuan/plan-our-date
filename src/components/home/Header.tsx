@@ -1,8 +1,10 @@
 import hero from '../../assets/image/hugyou.jpg';
 import landing from '../../assets/image/kissingyou.jpg';
-import boy1 from '../../assets/image/kissing.png';
-import boy2 from '../../assets/image/kiss.png';
-import girl from '../../assets/image/couple.png';
+import kiss from '../../assets/image/kiss.png';
+import kiss1 from '../../assets/image/kiss1.png';
+import kiss2 from '../../assets/image/kiss2.png';
+import kiss3 from '../../assets/image/kiss3.png';
+import kiss4 from '../../assets/image/kiss4.png';
 import { useNavigate } from 'react-router-dom';
 
 
@@ -21,13 +23,15 @@ function Header() {
             <a
                className="cta-button-large"
                onClick={startInvite}>
-            Continuing our journey of love
+               Continuing our journey of love
             </a>
             <div className="user-proof">
                <div className="avatars">
-                  <img src={boy1} alt="User 1" className="avatar-circle"></img>
-                  <img src={boy2} alt="User 3" className="avatar-circle"></img>
-                  <img src={girl} alt="User 2" className="avatar-circle"></img>
+                  <img src={kiss} alt="User 1" className="avatar-circle"></img>
+                  <img src={kiss1} alt="User 3" className="avatar-circle"></img>
+                  <img src={kiss2} alt="User 2" className="avatar-circle"></img>
+                  <img src={kiss3} alt="User 2" className="avatar-circle"></img>
+                  <img src={kiss4} alt="User 2" className="avatar-circle"></img>
                </div>
                <p>Give you <strong>9,999+</strong> kisses!</p>
             </div>

@@ -1,0 +1,720 @@
+/* @font-face {
+    font-family: 'Fjalla One';
+    src: url('../assets/FjallaOne-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+} */
+
+/* body {
+    font-family: 'Fjalla One', sans-serif;
+    background: transparent;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    overflow-x: hidden;
+} */
+
+:root {
+    --font-main: "Cabin Sketch", sans-serif;
+    /* --color-primary: #FF007f;
+    --color-primary-dark: #cc0066;
+    --color-accent: #a855f7; */
+    /* Soft Purple */
+    /* --color-peach: #ffecd2;
+    --color-cream: #fcb69f;
+    --glass-bg: rgba(255, 255, 255, 0.25);
+    --glass-border: rgba(255, 255, 255, 0.4);
+    --glass-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    --glass-blur: blur(5px); */
+}
+
+/* Ensure main content takes available space but doesn't overlap footer too much */
+main {
+    flex-grow: 1;
+    /* This is key for sticky footer: fills all available space */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* Center vertically and horizontally */
+    width: 100%;
+    position: relative;
+    z-index: 1;
+    /* Ensure content is above background */
+}
+
+footer.site-footer {
+    flex-shrink: 0;
+    width: 100%;
+    background-color: #333;
+    color: white;
+    text-align: center;
+    z-index: 1000;
+    position: relative;
+    /* Sticky footer via flexbox */
+}
+
+/* 
+   Navbar styles are inherited from ../styles.css 
+   (Pill Navbar with Glassmorphism)
+*/
+
+/* --- WIZARD CONTAINER (The Liquid Glass Box) --- */
+.wizard-container {
+    width: fit-content;
+    max-width: 90%;
+    min-width: 300px;
+    /* Reduced min-width */
+    margin: 2em auto;
+    padding: 3em 2em;
+
+    /* Glassmorphism Specs */
+    background: rgba(255, 255, 255, 0.3);
+    /* More transparent */
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 2px solid rgba(255, 255, 255, 0.8);
+    /* Distinct border */
+    border-radius: 30px;
+    /* Highly rounded */
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+
+    position: relative;
+    text-align: center;
+
+    /* Flex column for vertical centering of content */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 400px;
+    /* Minimum height to ensure centering looks good */
+    height: auto;
+    padding-bottom: 80px;
+
+    transition: all 0.5s ease;
+    /* Smooth transition for resizing */
+}
+
+/* LAYOUT MODES */
+.wizard-container.mode-list {
+    width: fit-content;
+}
+
+.wizard-container.mode-calendar {
+    width: 90%;
+    max-width: 1000px;
+    /* Wider for calendar */
+}
+
+/* Ensure step content is full width */
+.step {
+    width: 100%;
+}
+
+.step {
+    margin-bottom: 1.5em;
+}
+
+.error-message {
+    margin-bottom: 15px;
+    transition: color 0.3s ease;
+}
+
+.shake {
+    animation: shake-animation 0.5s ease-in-out;
+    color: #ff0000;
+    font-weight: bold;
+}
+
+@keyframes shake-animation {
+    0% {
+        transform: translateX(0);
+    }
+
+    12.5% {
+        transform: translateX(-6px) rotate(-1deg);
+    }
+
+    37.5% {
+        transform: translateX(5px) rotate(1deg);
+    }
+
+    62.5% {
+        transform: translateX(-3px) rotate(-0.5deg);
+    }
+
+    87.5% {
+        transform: translateX(2px) rotate(0.5deg);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+/* HEADINGS & TEXT */
+h2 {
+    color: #FF007f;
+    /* Brand Pink */
+    text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
+    font-size: 2em;
+    margin-bottom: 1em;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+p,
+strong {
+    color: #333;
+}
+
+/* GLOBAL BUTTON STYLES */
+button {
+    font-weight: bold;
+    text-transform: uppercase;
+    font-family: var(--font-main);
+    letter-spacing: .1em;
+    padding: .8em 2em;
+    font-size: 1.2em;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 1;
+}
+
+button:hover {
+    transform: scale(1.05);
+}
+
+/* PRIMARY GLOSSY GRADIENT BUTTONS */
+/* Applies to Yes, Next, Finish, and other action buttons */
+.modern-btn,
+.next-step,
+.finish-step,
+.select-all-btn,
+.add-time-slot-btn,
+.add-custom-food-btn,
+.add-custom-activity-btn,
+.long-effect-btn,
+.send-step {
+    background: linear-gradient(135deg, #FF007f 0%, #ff66b2 100%);
+    color: white;
+    box-shadow: 0 4px 15px rgba(255, 0, 127, 0.3);
+    position: relative;
+    overflow: hidden;
+    font-size: 1.2em;
+    padding: .8em 2em;
+    border-radius: 50px;
+}
+
+/* Specific styling for navigation buttons to ensure they look consistent */
+.next-step,
+.send-step {
+    margin-top: 40px;
+    display: inline-block;
+    width: auto;
+    min-width: 200px;
+}
+
+.modern-btn:hover,
+.next-step:hover,
+.finish-step:hover,
+.long-effect-btn:hover,
+.send-step:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 0, 127, 0.5);
+    filter: brightness(1.1);
+}
+
+/* Remove old conflicting overrides */
+/* (Old Step 4/5 next button overrides and pulse animations remain if needed, but we unify basic look) */
+
+/* RUNAWAY BUTTON ("NO") */
+.runaway-btn {
+    background: rgba(255, 255, 255, 0.8);
+    /* Semi-transparent white/gray */
+    color: #555;
+    /* Dark text */
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    position: relative;
+    /* CRITICAL for JS movement */
+}
+
+#response-buttons {
+    margin-top: 2em;
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+}
+
+/* --- STEP 3: DATE SELECTION (GLASS PILLS) --- */
+
+/* CONTAINER FOR DATE PILLS (LIST MODE) */
+.dates-container {
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    width: 100%;
+}
+
+@media (max-width: 900px) {
+    .dates-container {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .dates-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+.date-box {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 15px 20px;
+    margin: 0;
+    /* Remove margin as gap handles it */
+    border-radius: 50px;
+    /* Pill shape */
+
+    /* Glass Style */
+    background: rgba(255, 255, 255, 0.5);
+    border: 2px solid #ff66b2;
+    /* Pink border */
+    color: #333;
+    font-size: 1.1em;
+
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    width: 100%;
+    /* Fill grid cell */
+}
+
+/* Calendar Icon using FontAwesome */
+.date-box::before {
+    content: '\f073';
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    color: #FF007f;
+}
+
+.date-box:hover {
+    background: rgba(255, 102, 178, 0.15);
+    /* Light pink fill on hover */
+    transform: translateY(-2px);
+}
+
+/* Selected State - Full Gradient */
+.date-box.selected {
+    background: linear-gradient(135deg, #FF007f 0%, #ff66b2 100%);
+    color: white;
+    border-color: transparent;
+    box-shadow: 0 0 15px rgba(255, 0, 127, 0.5);
+    /* Glow */
+}
+
+.date-box.selected::before {
+    color: white;
+}
+
+/* Calendar Container Grid overrides */
+.calendar-container {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 10px;
+    width: 100% !important;
+    margin: 20px 0;
+    box-sizing: border-box;
+}
+
+.day-header {
+    font-weight: bold;
+    text-align: center;
+    font-size: 1.2em;
+    color: #444;
+}
+
+/* Time slots */
+.time-slot-container {
+    margin: 1em 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    justify-content: center;
+}
+
+.time-picker {
+    font-family: var(--font-main);
+    padding: 0.5em;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    background: rgba(255, 255, 255, 0.6);
+    font-size: 1em;
+    outline: none;
+}
+
+/* --- STEP 4 & 5: FOOD & ACTIVITY CARDS --- */
+.food-container,
+.activity-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 160px);
+    /* Fixed size for centering */
+    gap: 20px;
+    margin-top: 20px;
+    justify-content: center;
+    /* Center the cards if they don't fill the row */
+    justify-items: center;
+}
+
+.food-item,
+.activity-item {
+    width: 100%;
+    max-width: 160px;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 20px;
+
+    /* Glass Card Style */
+    background: rgba(255, 255, 255, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    padding: 10px;
+    padding-bottom: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.food-item img,
+.activity-item img {
+    width: 100%;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 16px;
+    /* Rounded images */
+    margin-bottom: 10px;
+    transition: transform 0.3s ease;
+}
+
+.food-item label,
+.activity-item label {
+    display: block;
+    text-align: center;
+    font-weight: bold;
+    color: #333;
+    font-size: 1.2em;
+    /* FjallaOne large */
+}
+
+.food-item:hover,
+.activity-item:hover {
+    transform: scale(1.05);
+    background: rgba(255, 255, 255, 0.6);
+}
+
+/* Selected State */
+.food-item.selected,
+.activity-item.selected {
+    border: 3px solid #FF007f;
+    /* Thick pink border */
+    box-shadow: 0 10px 25px rgba(255, 0, 127, 0.3);
+    /* Pink shadow */
+    transform: scale(1.05);
+}
+
+.food-item.selected img,
+.activity-item.selected img {
+    /* Optional little rotation or effect */
+}
+
+/* Custom Add Section */
+.add-food-section,
+.add-activity-section {
+    width: 100%;
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px dashed rgba(0, 0, 0, 0.1);
+}
+
+/* --- STEP 6: EXCITEMENT SLIDER --- */
+#excitement-section {
+    width: 100%;
+    margin: 20px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#excitement-section p {
+    margin-top: 40px;
+    /* Prevent overlap with the large heart slider thumb */
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+input[type="range"] {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 16px;
+    /* Rail height */
+    border-radius: 20px;
+    /* Track Background: Darker semi-transparent white */
+    background: rgba(0, 0, 0, 0.15);
+    outline: none;
+    opacity: 1;
+    transition: opacity 0.2s;
+    margin-top: 30px;
+    /* Space for thumb */
+    cursor: pointer;
+}
+
+/* Slider Thumb (Pixel Cat / Heart) */
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 60px;
+    height: 60px;
+    /* Keeping original heart SVG as requested, unless pixel cat asset is found/provided later */
+    background: url('../assets/heart.svg') no-repeat center center;
+    background-size: contain;
+    cursor: pointer;
+    border: none;
+    filter: drop-shadow(0 4px 5px rgba(0, 0, 0, 0.2));
+    transition: transform 0.2s;
+}
+
+input[type="range"]::-webkit-slider-thumb:hover {
+    transform: scale(1.1);
+}
+
+/* Mozilla styles */
+input[type="range"]::-moz-range-track {
+    background: rgba(0, 0, 0, 0.15);
+    height: 16px;
+    border-radius: 20px;
+}
+
+input[type="range"]::-moz-range-progress {
+    background: linear-gradient(to right, #ff66b2, #ff3380);
+    height: 16px;
+    border-radius: 20px;
+}
+
+input[type="range"]::-moz-range-thumb {
+    width: 60px;
+    height: 60px;
+    background: url('../assets/heart.svg') no-repeat center center;
+    background-size: contain;
+    cursor: pointer;
+    border: none;
+}
+
+.flying-heart {
+    position: absolute;
+    font-family: 'Lineicons';
+    font-size: 24px;
+    color: #FF007f;
+    z-index: 100;
+    animation: flyFromSlider 2s ease-out forwards;
+    pointer-events: none;
+}
+
+@keyframes flyFromSlider {
+    0% {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(-200px) translateX(var(--tx, 50px)) rotate(360deg) scale(0.5);
+        opacity: 0;
+    }
+}
+
+/* --- STEP 7: SUMMARY (TICKET) --- */
+#step-7 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* Vertical centering */
+    width: 100%;
+    height: 100%;
+}
+
+.recap-container {
+    /* Ticket Look */
+    background: rgba(255, 255, 255, 0.9);
+    padding: 30px;
+    border-radius: 10px;
+    /* Less rounded for ticket feel */
+    width: 100%;
+    max-width: 400px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+    /* Stronger shadow to lift it */
+    margin: 0 auto;
+    /* Centered without extra vertical margin */
+    position: relative;
+
+    /* Optional: Ticket holes/perforation visualization */
+    background-image: radial-gradient(circle at 0 0, transparent 10px, rgba(255, 255, 255, 0.9) 11px),
+        radial-gradient(circle at 100% 0, transparent 10px, rgba(255, 255, 255, 0.9) 11px),
+        radial-gradient(circle at 0 100%, transparent 10px, rgba(255, 255, 255, 0.9) 11px),
+        radial-gradient(circle at 100% 100%, transparent 10px, rgba(255, 255, 255, 0.9) 11px);
+    background-position: top left, top right, bottom left, bottom right;
+    background-size: 50% 50%;
+    background-repeat: no-repeat;
+    /* Masking corner holes if we wanted true transparency, but this is simpler overlay */
+}
+
+/* Separator line inside ticket */
+.recap-container::after {
+    content: "";
+    display: block;
+    height: 2px;
+    background: repeating-linear-gradient(to right, #ccc 0, #ccc 10px, transparent 10px, transparent 20px);
+    margin: 20px 0;
+}
+
+/* Card inside recap (created by JS) */
+.recap-container .card {
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    padding: 0;
+    margin-bottom: 10px;
+    text-align: left;
+}
+
+.recap-container .card-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-size: 1.1em;
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.recap-container .card-item i {
+    color: #FF007f;
+    width: 25px;
+    text-align: center;
+}
+
+/* Additional Styles for Summary Images & Cards inside Ticket */
+.recap-image {
+    width: 60px;
+    height: 60px;
+    border-radius: 10px;
+    object-fit: cover;
+    margin-right: 15px;
+    border: 2px solid white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card-text {
+    font-size: 1.1em;
+    color: #333;
+    line-height: 1.4;
+}
+
+/* Ensure Food/Activity cards in summary are flex */
+.food-card,
+.activity-card {
+    display: flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.4);
+    border-radius: 15px;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+/* Final Confirm Button */
+.finish-step,
+.send-step {
+    padding: 1.2em 3em;
+    font-size: 1.5em;
+    margin-top: 5px;
+    /* Reduced gap to ticket */
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(255, 0, 127, 0.7);
+    }
+
+    70% {
+        transform: scale(1.03);
+        box-shadow: 0 0 0 15px rgba(255, 0, 127, 0);
+    }
+
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(255, 0, 127, 0);
+    }
+}
+
+/* GIF Sections */
+#excited-gif img,
+#happy-gif img {
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    margin-bottom: 20px;
+    max-width: 100%;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    main {
+        /* On mobile, ensure enough space is available but let flex-grow handle the rest */
+        min-height: auto;
+    }
+
+    footer.site-footer {
+        position: relative;
+        /* Ensure it stays at bottom flow */
+    }
+
+    .wizard-container {
+        width: 95%;
+        min-width: unset;
+        padding: 2em 0.5em;
+        margin: 1em auto;
+        min-height: auto;
+        /* Allow flexible height on mobile */
+    }
+
+    .food-container,
+    .activity-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    button {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    #response-buttons {
+        flex-direction: column;
+    }
+
+    .runaway-btn {
+        margin-top: 10px;
+    }
+
+    /* Reset specific next button width on mobile if needed, or keep full width */
+    .next-step,
+    .send-step {
+        width: 100%;
+        margin-top: 20px;
+    }
+}

@@ -1,7 +1,12 @@
 
 function Navbar() {
+
+   const redirectHome = () => {
+      window.location.href = "/";
+   }
+
    return (
-      <nav>
+      <nav onClick={redirectHome}>
          <div className="navbar-left">
             <h1>
                Bá Quận
