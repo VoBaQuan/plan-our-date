@@ -2,9 +2,7 @@ import Navbar from '../common/Navbar'
 import LiquidBackground from '../common/LiquidBackground'
 import Header from './Header';
 import HowItWorkImage from './HowItWorkImage';
-import BenefitsSection from './BenefitsSection';
 import TiktokSection from './TiktokSection';
-import Footer from '../common/Footer';
 
 function Home() {
    return (
