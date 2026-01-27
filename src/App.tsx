@@ -8,7 +8,6 @@ function App() {
   const repoName = "/plan-our-date";
 
   return (
-    // <Home></Home>
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Navigate to={repoName} replace />} />

@@ -1254,3 +1254,23 @@ footer.site-footer {
     grid-template-columns: repeat(2, 1fr);
   }
 }
+
+.reveal-effect {
+  animation: reveal 1.2s ease-out forwards;
+}
+
+@keyframes reveal {
+  0% {
+    opacity: 0;
+    filter: blur(10px);
+    letter-spacing: 10px;
+    transform: scale(1.1);
+  }
+
+  100% {
+    opacity: 1;
+    filter: blur(0);
+    letter-spacing: normal;
+    transform: scale(1);
+  }
+}
