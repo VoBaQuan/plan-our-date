@@ -1,18 +1,22 @@
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom'
 import './App.css'
 import Home from './components/home/Home'
 import Invite from './components/invite/Invite'
 
 function App() {
 
-  const repoName = import.meta.env.DEV ? "/" : "/plan-our-date";
+  const repoName = "/plan-our-date";
 
   return (
     // <Home></Home>
-    <BrowserRouter basename={repoName}>
+    <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/invite" element={<Invite />} />
+        <Route path="/" element={<Navigate to={repoName} replace />} />
+
+        <Route path={repoName} element={<Home />} />
+        <Route path={`${repoName}/invite`} element={<Invite />} />
+
+        <Route path="*" element={<Navigate to={repoName} replace />} />
       </Routes>
     </BrowserRouter>
   )

@@ -2,7 +2,7 @@
 function Navbar() {
 
    const redirectHome = () => {
-      window.location.href = "/";
+      window.location.href = "/plan-our-date";
    }
 
    return (
