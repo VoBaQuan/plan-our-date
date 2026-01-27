@@ -5,7 +5,7 @@ import Invite from './components/invite/Invite'
 
 function App() {
 
-  const repoName = import.meta.env.DEV ? "/" : "/plan-out-date";
+  const repoName = import.meta.env.DEV ? "/" : "/plan-our-date";
 
   return (
     // <Home></Home>
