@@ -8,5 +8,5 @@ export default defineConfig(({ command }) => ({
     react(),
     tailwindcss(),
   ],
-  base: command === 'serve' ? '/' : '/plan-out-date/',
+  base: command === 'serve' ? '/' : '/plan-our-date/',
 }))
