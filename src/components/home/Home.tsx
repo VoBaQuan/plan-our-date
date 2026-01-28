@@ -6,7 +6,7 @@ import TiktokSection from './TiktokSection';
 
 function Home() {
    return (
-      <div className="reveal-effect">
+      <div className="fade-in-page">
          <LiquidBackground></LiquidBackground>
          <Navbar></Navbar>
          <Header></Header>

@@ -79,7 +79,7 @@ function Invite() {
    }, []);
 
    return (
-      <div className="reveal-effect">
+      <div className="fade-in-page">
          <LiquidBackground></LiquidBackground>
          <Navbar></Navbar>
 
