@@ -6,7 +6,7 @@ import TiktokSection from './TiktokSection';
 
 function Home() {
    return (
-      <div className="fade-in-page">
+      <div>
          <LiquidBackground></LiquidBackground>
          <Navbar></Navbar>
          <Header></Header>

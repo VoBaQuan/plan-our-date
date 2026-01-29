@@ -1,8 +1,12 @@
+import { useNavigate } from "react-router-dom";
 
 function Navbar() {
 
+   const navigate = useNavigate();
+   const repoName = "/plan-our-date";
+
    const redirectHome = () => {
-      window.location.href = "/plan-our-date";
+      navigate(repoName);
    }
 
    return (

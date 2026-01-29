@@ -3,6 +3,14 @@ import LiquidBackground from "../common/LiquidBackground";
 import Navbar from "../common/Navbar";
 import './invite.css'
 import yahGif from '../../assets/image/yah.gif';
+import { AnimatePresence, motion } from "framer-motion";
+
+const stepVariants = {
+   initial: { opacity: 0, x: 50 },
+   animate: { opacity: 1, x: 0 },
+   exit: { opacity: 0, x: -50 },
+   transition: { duration: 0.4, ease: "easeInOut" }
+};
 
 function Invite() {
 
@@ -79,90 +87,113 @@ function Invite() {
    }, []);
 
    return (
-      <div className="fade-in-page">
+      <div>
          <LiquidBackground></LiquidBackground>
          <Navbar></Navbar>
 
          {/* invite content */}
          <main>
             <div className="wizard-container">
-               {/* step 1 */}
-               {
-                  currentStep === 1 && (
-                     <div className="step">
-                        <h2><strong>Do you love me ?</strong></h2>
-                        <div id="response-buttons">
-                           <button
-                              className="modern-btn"
-                              onClick={onYesButton}>
-                              Yes
-                           </button>
-                           <button
-                              ref={noButtonRef}
-                              className="modern-btn runaway-btn">
-                              No
-                           </button>
-                        </div>
-                     </div>
-                  )
-               }
+               <AnimatePresence mode="wait">
+                  {/* step 1 */}
+                  {
+                     currentStep === 1 && (
+                        <motion.div
+                           key="step1"
+                           variants={stepVariants}
+                           initial="initial"
+                           animate="animate"
+                           exit="exit"
+                           className="step"
+                        >
+                           <h2><strong>Do you love me ?</strong></h2>
+                           <div id="response-buttons">
+                              <button
+                                 className="modern-btn"
+                                 onClick={onYesButton}>
+                                 Yes
+                              </button>
+                              <button
+                                 ref={noButtonRef}
+                                 className="modern-btn runaway-btn">
+                                 No
+                              </button>
+                           </div>
+                        </motion.div>
+                     )
+                  }
 
-               {/* step 2 */}
-               {
-                  currentStep === 2 && (
-                     <div className="step">
-                        <h2>YEAHHHHH</h2>
-                        <div id="happy-gif">
-                           <img
-                              loading="lazy"
-                              decoding="async"
-                              src={yahGif}>
-                           </img>
-                        </div>
-                        <button
-                           onClick={onContinueButton}
-                           className="long-effect-btn">
-                           Continue
-                        </button>
-                     </div>
-                  )
-               }
+                  {/* step 2 */}
+                  {
+                     currentStep === 2 && (
+                        <motion.div
+                           key="step2"
+                           variants={stepVariants}
+                           initial="initial"
+                           animate="animate"
+                           exit="exit"
+                           className="step"
+                        >
+                           <h2>YEAHHHHH</h2>
+                           <div id="happy-gif">
+                              <img
+                                 loading="lazy"
+                                 decoding="async"
+                                 src={yahGif}>
+                              </img>
+                           </div>
+                           <button
+                              onClick={onContinueButton}
+                              className="long-effect-btn">
+                              Continue
+                           </button>
+                        </motion.div>
+                     )
+                  }
 
-               {/* step 3 */}
-               {
-                  currentStep === 3 && (
-                     <div className="step">
-                        <h2>WHEN ARE YOU FREE?</h2>
-                        <div
-                           className={`error-message ${shakeError ? 'shake' : ''}`}>
-                           You decide the time, my love! ❤️
-                        </div>
-                        <div className="dates-container">
+                  {/* step 3 */}
+                  {
+                     currentStep === 3 && (
+                        <motion.div
+                           key="step3"
+                           variants={stepVariants}
+                           initial="initial"
+                           animate="animate"
+                           exit="exit"
+                           className="step"
+                        >
+                           <h2>WHEN ARE YOU FREE?</h2>
                            <div
-                              className={`date-box ${selectedDate === "2025-08-15-19:00" ? "selected" : ""}`}
-                              onClick={() => handleSelect("2025-08-15", "19:00")}>
-                              15.08.2025 19:00
+                              className={`error-message ${shakeError ? 'shake' : ''}`}>
+                              You decide the time, my love! ❤️
                            </div>
-                           <div
-                              className={`date-box ${selectedDate === "2025-08-15-20:00" ? "selected" : ""}`}
-                              onClick={() => handleSelect("2025-08-15", "20:00")}>
-                              15.08.2025 20:00
+                           <div className="dates-container">
+                              <div
+                                 className={`date-box ${selectedDate === "2025-08-15-19:00" ? "selected" : ""}`}
+                                 onClick={() => handleSelect("2025-08-15", "19:00")}>
+                                 15.08.2025 19:00
+                              </div>
+                              <div
+                                 className={`date-box ${selectedDate === "2025-08-15-20:00" ? "selected" : ""}`}
+                                 onClick={() => handleSelect("2025-08-15", "20:00")}>
+                                 15.08.2025 20:00
+                              </div>
+                              <div
+                                 className={`date-box ${selectedDate === "2025-08-16-18:30" ? "selected" : ""}`}
+                                 onClick={() => handleSelect("2025-08-16", "18:30")}>
+                                 16.08.2025 18:30
+                              </div>
                            </div>
-                           <div
-                              className={`date-box ${selectedDate === "2025-08-16-18:30" ? "selected" : ""}`}
-                              onClick={() => handleSelect("2025-08-16", "18:30")}>
-                              16.08.2025 18:30
-                           </div>
-                        </div>
-                        <button
-                           type="button"
-                           className="btn next-step right-bottom-btn"
-                           onClick={handleNextStep4}>
-                           Next
-                        </button>
-                     </div>
-                  )
-               }
+                           <button
+                              type="button"
+                              className="btn next-step right-bottom-btn"
+                              onClick={handleNextStep4}>
+                              Next
+                           </button>
+                        </motion.div>
+                     )
+                  }
+               </AnimatePresence>
             </div>
          </main>
       </div>
