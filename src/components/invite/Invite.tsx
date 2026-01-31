@@ -53,7 +53,7 @@ function Invite() {
          const btnY = rect.top + rect.height / 2;
 
          const distance = Math.hypot(e.clientX - btnX, e.clientY - btnY);
-         const dodgeRadius = 250;
+         const dodgeRadius = 150;
 
          if (distance < dodgeRadius) {
             const angle = Math.atan2(btnY - e.clientY, btnX - e.clientX);

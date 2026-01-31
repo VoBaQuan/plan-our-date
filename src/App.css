@@ -511,7 +511,7 @@ main {
 }
 
 .nav-heart i {
-  font-size: 50px;
+  font-size: 60px;
   background: linear-gradient(45deg, #ff3380, #ffcc00);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -521,9 +521,30 @@ main {
 
 .heart-icon-glow {
   display: inline-block;
-  margin-top: 20px;
-  animation: float-img 5s ease-in-out infinite;
+  animation: heartbeat 2s infinite;
   /* Floating animation added */
+}
+
+@keyframes heartbeat {
+  0% {
+    transform: scale(1);
+  }
+
+  15% {
+    transform: scale(1.1);
+  }
+
+  30% {
+    transform: scale(1);
+  }
+
+  45% {
+    transform: scale(1.15);
+  }
+
+  60% {
+    transform: scale(1);
+  }
 }
 
 .benefit-item {
