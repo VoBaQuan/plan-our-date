@@ -697,10 +697,6 @@ input[type="range"]::-moz-range-thumb {
         /* Allow flexible height on mobile */
     }
 
-    .step-footer {
-        /* margin: 0px 30px 0px 30px; */
-    }
-
     .food-container,
     .activity-container {
         grid-template-columns: repeat(2, 1fr);

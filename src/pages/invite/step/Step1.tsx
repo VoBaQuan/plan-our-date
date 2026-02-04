@@ -3,7 +3,7 @@ import '../invite.css';
 import type { StepProps } from "../types";
 import { motion, type Variants } from "framer-motion";
 
-import shyGif from '../../../assets/image/89355081a213ca3f622b0b39b94e9016.gif';
+import shyGif from '../../../assets/gif/shy1.gif';
 
 const Step1 = ({ onNext }: StepProps) => {
    const noButtonRef = useRef<HTMLButtonElement>(null);

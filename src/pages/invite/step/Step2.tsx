@@ -1,5 +1,5 @@
 import '../invite.css'
-import yahGif from '../../../assets/image/yah.gif';
+import yahGif from '../../../assets/gif/yah.gif';
 
 const Step2 = () => {
    return (
