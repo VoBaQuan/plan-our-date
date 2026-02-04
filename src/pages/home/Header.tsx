@@ -8,7 +8,7 @@ import kiss4 from '../../assets/image/kiss4.png';
 import { useNavigate } from 'react-router-dom';
 
 
-function Header() {
+const Header = () => {
    const navigate = useNavigate();
 
    const startInvite = () => {

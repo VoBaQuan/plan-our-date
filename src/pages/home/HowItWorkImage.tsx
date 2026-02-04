@@ -1,5 +1,5 @@
 
-function HowItWorkImage() {
+const HowItWorkImage = () => {
    return (
       <section id="how-it-works-image" className="flex-container">
          <div className="box-wrapper">

@@ -1,4 +1,4 @@
-function BenefitsSection() {
+const BenefitsSection = () => {
    return (
       <section id="benefits-section">
          <h2 className="section-subtitle">

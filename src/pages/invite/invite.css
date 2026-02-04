@@ -62,8 +62,8 @@ footer.site-footer {
 /* --- WIZARD CONTAINER (The Liquid Glass Box) --- */
 .wizard-container {
     width: fit-content;
-    max-width: 90%;
-    min-width: 300px;
+    max-width: 100%;
+    min-width: 400px;
     /* Reduced min-width */
     margin: 2em auto;
     padding: 3em 2em;
@@ -685,7 +685,7 @@ input[type="range"]::-moz-range-thumb {
     }
 
     .wizard-container {
-        width: 95%;
+        width: 90%;
         min-width: unset;
         padding: 2em 0.5em;
         margin: 1em auto;

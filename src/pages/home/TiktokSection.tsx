@@ -1,6 +1,6 @@
 import video from '../../assets/video/journey.mp4';
 
-function TiktokSection() {
+const TiktokSection = () => {
    return (
       <section className="tiktok-section glass-panel">
          <div className="tiktok-content-wrapper">

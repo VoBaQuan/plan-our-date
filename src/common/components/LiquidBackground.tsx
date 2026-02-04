@@ -1,5 +1,5 @@
 
-function LiquidBackground() {
+const LiquidBackground = () => {
    return (
       <div className="liquid-background">
          <div className="blob blob-1"></div>

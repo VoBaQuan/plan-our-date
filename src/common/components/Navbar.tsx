@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 
-function Navbar() {
+const Navbar = () => {
 
    const navigate = useNavigate();
    const repoName = "/plan-our-date";
