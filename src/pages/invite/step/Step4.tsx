@@ -1,6 +1,4 @@
-import type { StepProps } from "../types";
-
-const Step4 = ({onNext}: StepProps) => {
+const Step4 = () => {
    return (
       <>
       </>

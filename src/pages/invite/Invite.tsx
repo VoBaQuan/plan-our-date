@@ -32,7 +32,7 @@ const Invite = () => {
             return <Step3 ref={step3Ref} />;
 
          case InviteSteps.Step4:
-            return <Step4 onNext={() => setCurrentStep(InviteSteps.Step5)} />;
+            return <Step4 />;
 
          default: return null;
       }

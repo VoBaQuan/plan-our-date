@@ -1,29 +1,41 @@
 import { useEffect, useRef, useState } from "react";
 import '../invite.css';
 import type { StepProps } from "../types";
-import { motion } from "framer-motion";
+import { motion, type Variants } from "framer-motion";
 
 import shyGif from '../../../assets/image/89355081a213ca3f622b0b39b94e9016.gif';
 
 const Step1 = ({ onNext }: StepProps) => {
    const noButtonRef = useRef<HTMLButtonElement>(null);
    const [noScale, setNoScale] = useState(1);
-   const [isVisible, setIsVisible] = useState(true);
+   const [pulseYes, setPulseYes] = useState(false);
    const isMobile = window.innerWidth <= 768;
 
    const handleNoClick = () => {
-      if (noScale > 0.4) {
+      if (noScale > 0.2) {
          setNoScale((prev) => prev - 0.2);
-      } else {
-         setIsVisible(false);
       }
    }
 
    const handleNoAction = () => {
       if (!isMobile) return;
 
+      setPulseYes(true);
+      setTimeout(() => setPulseYes(false), 500);
       handleNoClick();
    }
+
+   const pulseVariants: Variants = {
+      rest: { scale: 1, transition: { duration: 0.2 } },
+      pulsing: {
+         scale: [1, 2, 1], // To lên 2 lần rồi về 1
+         transition: {
+            duration: 0.3, // Thời gian cho một nhịp đập
+            ease: "easeInOut",
+            repeat: 0, // Chỉ đập một lần
+         }
+      }
+   };
 
    useEffect(() => {
       const handleMouseMove = (e: MouseEvent) => {
@@ -80,25 +92,26 @@ const Step1 = ({ onNext }: StepProps) => {
          </div>
          <div className="step-footer">
             {
-               isVisible && isMobile && (
+               isMobile && (
                   <motion.button
                      layout
-                     initial={{ scale: 1, opacity: 1 }}
                      animate={{ scale: noScale, opacity: noScale }}
-                     exit={{ scale: 0, opacity: 0 }}
                      transition={{
                         type: "spring",
-                        stiffness: 500, // Tăng lên để phản ứng nhanh hơn
-                        damping: 30,    // Tăng nhẹ để dừng lại êm, không bị rung (bounce) quá đà
-                        mass: 0.8       // Giảm khối lượng để vật thể cảm giác nhẹ và nhanh hơn
+                        stiffness: 800,
+                        damping: 40,
+                        mass: 0.5
                      }}
+                     onPointerDown={handleNoAction}
                      className="modern-btn runaway-btn"
-                     style={{ paddingLeft: '60px', paddingRight: '60px' }}
-                     onClick={handleNoAction}
+                     style={{
+                        visibility: noScale <= 0.2 ? "hidden" : "visible",
+                     }}
                   >
                      No
                   </motion.button>
-               )}
+               )
+            }
             {
                !isMobile && (
                   <button
@@ -108,12 +121,17 @@ const Step1 = ({ onNext }: StepProps) => {
                   </button>
                )
             }
-            <button
+
+            <motion.button
+               layout
+               key="yes-btn"
+               variants={pulseVariants}
+               animate={pulseYes ? "pulsing" : "rest"}
+               transition={{ type: "spring", stiffness: 500, damping: 30 }}
                className="modern-btn"
-               style={isMobile ? { paddingLeft: '60px', paddingRight: '60px' } : {}}
                onClick={onNext}>
                Yes
-            </button>
+            </motion.button>
          </div>
       </>
    )

@@ -2,7 +2,7 @@ import { forwardRef, useImperativeHandle, useState } from 'react';
 import '../invite.css'
 import type { StepProps } from "../types";
 
-const Step3 = forwardRef<StepProps, any>((props, ref) => {
+const Step3 = forwardRef<StepProps, any>((_props, ref) => {
    const [selectedDate, setSelectedDate] = useState<string | null>(null);
    const handleSelect = (date: string, time: string) => {
       const id = `${date}-${time}`;
@@ -15,21 +15,12 @@ const Step3 = forwardRef<StepProps, any>((props, ref) => {
       validate: () => {
          if (!selectedDate) {
             setShakeError(true);
-            setTimeout(() => setShakeError(false), 500); // Reset hiệu ứng rung
+            setTimeout(() => setShakeError(false), 500);
             return false;
          }
          return true;
       },
    }));
-   // const nextStep = () => {
-   //    if (!selectedDate) {
-   //       setShakeError(true);
-
-   //       setTimeout(() => setShakeError(false), 500);
-   //    } else {
-   //       onNext();
-   //    }
-   // };
 
    return (
       <>
@@ -55,12 +46,6 @@ const Step3 = forwardRef<StepProps, any>((props, ref) => {
                16.08.2025 18:30
             </div>
          </div>
-         {/* <button
-            type="button"
-            className="btn next-step right-bottom-btn"
-            onClick={nextStep}>
-            Next
-         </button> */}
       </>
    )
 })
