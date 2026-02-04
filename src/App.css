@@ -1213,6 +1213,11 @@ footer.site-footer {
     width: 90% !important;
   }
 
+  .nav-heart i {
+    font-size: 40px;
+    margin: 16px 0px 16px 0px;
+  }
+
   .navbar-left h1 {
     font-size: 1.5em;
   }

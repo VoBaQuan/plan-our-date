@@ -89,7 +89,6 @@ footer.site-footer {
     min-height: 400px;
     /* Minimum height to ensure centering looks good */
     height: auto;
-    padding-bottom: 80px;
 
     transition: all 0.5s ease;
     /* Smooth transition for resizing */
@@ -106,13 +105,17 @@ footer.site-footer {
     /* Wider for calendar */
 }
 
+.step-footer {
+    display: flex;
+    flex-direction: row;
+    justify-items: center;
+    justify-content: space-between;
+    margin-top: 32px;
+}
+
 /* Ensure step content is full width */
 .step {
     width: 100%;
-}
-
-.step {
-    margin-bottom: 1.5em;
 }
 
 .error-message {
@@ -242,7 +245,7 @@ button:hover {
     /* CRITICAL for JS movement */
 }
 
-#response-buttons {
+.response-buttons {
     margin-top: 2em;
     display: flex;
     justify-content: space-around;
@@ -664,12 +667,13 @@ input[type="range"]::-moz-range-thumb {
 }
 
 /* GIF Sections */
-#excited-gif img,
-#happy-gif img {
+.shy-gif img,
+.happy-gif img {
     border-radius: 20px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-    margin-bottom: 20px;
-    max-width: 100%;
+    margin-bottom: 32px;
+    max-width: 200px;
+    max-height: 200px;
 }
 
 /* RESPONSIVE */
@@ -687,10 +691,14 @@ input[type="range"]::-moz-range-thumb {
     .wizard-container {
         width: 90%;
         min-width: unset;
-        padding: 2em 0.5em;
+        padding: 2em 20px;
         margin: 1em auto;
         min-height: auto;
         /* Allow flexible height on mobile */
+    }
+
+    .step-footer {
+        /* margin: 0px 30px 0px 30px; */
     }
 
     .food-container,
@@ -698,17 +706,8 @@ input[type="range"]::-moz-range-thumb {
         grid-template-columns: repeat(2, 1fr);
     }
 
-    button {
-        width: 100%;
-        margin-bottom: 10px;
-    }
-
-    #response-buttons {
+    .response-buttons {
         flex-direction: column;
-    }
-
-    .runaway-btn {
-        margin-top: 10px;
     }
 
     /* Reset specific next button width on mobile if needed, or keep full width */

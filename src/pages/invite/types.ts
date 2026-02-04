@@ -1,0 +1,12 @@
+export interface StepProps {
+   onNext?: () => void;
+   validate?: () => boolean;
+}
+
+export const InviteSteps = {
+   Step1: 1,
+   Step2: 2,
+   Step3: 3,
+   Step4: 4,
+   Step5: 5,
+}
