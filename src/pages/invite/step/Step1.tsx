@@ -94,7 +94,6 @@ const Step1 = ({ onNext }: StepProps) => {
             {
                isMobile && (
                   <motion.button
-                     layout
                      animate={{ scale: noScale, opacity: noScale }}
                      transition={{
                         type: "spring",
@@ -123,8 +122,6 @@ const Step1 = ({ onNext }: StepProps) => {
             }
 
             <motion.button
-               layout
-               key="yes-btn"
                variants={pulseVariants}
                animate={pulseYes ? "pulsing" : "rest"}
                transition={{ type: "spring", stiffness: 500, damping: 30 }}
