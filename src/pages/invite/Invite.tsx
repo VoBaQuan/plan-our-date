@@ -19,6 +19,7 @@ const Invite = () => {
 
    const [currentStep, setCurrentStep] = useState<number>(InviteSteps.Step1);
    const step3Ref = useRef<StepProps>(null);
+   const step4Ref = useRef<StepProps>(null);
 
    const renderStep = () => {
       switch (currentStep) {
@@ -32,7 +33,7 @@ const Invite = () => {
             return <Step3 ref={step3Ref} />;
 
          case InviteSteps.Step4:
-            return <Step4 />;
+            return <Step4 ref={step4Ref} />;
 
          default: return null;
       }
@@ -43,6 +44,12 @@ const Invite = () => {
 
       if (currentStep === InviteSteps.Step3) {
          const isValid = step3Ref.current?.validate!();
+
+         if (!isValid) return;
+      }
+
+      if (currentStep === InviteSteps.Step4) {
+         const isValid = step4Ref.current?.validate!();
 
          if (!isValid) return;
       }
