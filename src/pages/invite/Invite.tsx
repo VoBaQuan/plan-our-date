@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import './invite.css'
 import { AnimatePresence, motion } from "framer-motion";
 
@@ -8,6 +8,7 @@ import Step3 from "./step/Step3";
 import { InviteSteps, type StepProps } from "./types";
 import Step4 from "./step/Step4";
 import Step5 from "./step/step5";
+import { useInvite } from "./InviteContext";
 
 const stepVariants = {
    initial: { opacity: 0, scale: 0.9 },
@@ -54,6 +55,7 @@ const Invite = () => {
       }
 
       if (currentStep === InviteSteps.Step4) {
+
          const isValid = step4Ref.current?.validate!();
 
          if (!isValid) return;
@@ -67,6 +69,11 @@ const Invite = () => {
 
       setCurrentStep(currentStep - 1);
    }
+
+   const { formData } = useInvite();
+   useEffect(() => {
+      console.log(" Current Context Data:", formData);
+   }, [formData]);
 
    return (
       <main>

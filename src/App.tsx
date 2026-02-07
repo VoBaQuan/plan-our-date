@@ -5,6 +5,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import Home from './pages/home/Home'
 import MainLayout from './layouts/MainLayout'
 import Invite from './pages/invite/Invite';
+import { InviteProvider } from './pages/invite/InviteContext';
 
 const PageWrapper = ({ children }: any) => (
   <motion.div
@@ -34,7 +35,15 @@ const App = () => {
         <Route element={<MainLayout />}>
           <Route path="/" element={<Navigate to={repoName} replace />} />
           <Route path={repoName} element={<PageWrapper><Home /></PageWrapper>} />
-          <Route path={`${repoName}/invite`} element={<PageWrapper><Invite /></PageWrapper>} />
+          <Route
+            path={`${repoName}/invite`}
+            element={
+              <PageWrapper>
+                <InviteProvider>
+                  <Invite />
+                </InviteProvider>
+              </PageWrapper>
+            } />
         </Route>
 
         <Route path="*" element={<Navigate to={repoName} replace />} />

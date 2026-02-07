@@ -1,6 +1,7 @@
 import { forwardRef, useImperativeHandle, useState } from 'react';
 import '../invite.css'
 import type { StepProps } from "../types";
+import { useInvite } from '../InviteContext';
 
 interface Date {
    id: string,
@@ -27,9 +28,11 @@ const dateArray: Date[] = [
 ]
 
 const Step3 = forwardRef<StepProps, any>((_props, ref) => {
-   const [selectedDate, setSelectedDate] = useState<string | null>(null);
-   const handleSelect = (dateId: string) => {
-      setSelectedDate(dateId);
+   const { formData, updateFormData } = useInvite();
+   const [selectedDate, setSelectedDate] = useState<string>(formData.selectedDate || '');
+   const handleSelect = (date: Date) => {
+      setSelectedDate(date.id);
+      updateFormData({selectedDate: date.id})
    };
 
    const [shakeError, setShakeError] = useState(false);
@@ -58,7 +61,7 @@ const Step3 = forwardRef<StepProps, any>((_props, ref) => {
                   <div
                      key={date.id}
                      className={`date-box ${selectedDate === date.id ? 'selected' : ''}`}
-                     onClick={() => handleSelect(date.id)}>
+                     onClick={() => handleSelect(date)}>
                      {date.value}
                   </div>
                ))

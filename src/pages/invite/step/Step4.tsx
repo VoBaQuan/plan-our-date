@@ -5,6 +5,7 @@ import food1 from '../../../assets/image/foods/pizza.webp';
 import food2 from '../../../assets/image/foods/pizza.webp';
 import food3 from '../../../assets/image/foods/pizza.webp';
 import food4 from '../../../assets/image/foods/pizza.webp';
+import { useInvite } from "../InviteContext";
 
 interface Food {
    id: string,
@@ -37,11 +38,13 @@ const foodArray: Food[] = [
 
 const Step4 = forwardRef<StepProps, any>((_props, ref) => {
 
+   const { formData, updateFormData } = useInvite();
    const [shakeError, setShakeError] = useState(false);
-   const [selectedFood, setSelectedFood] = useState<string | null>(null);
+   const [selectedFood, setSelectedFood] = useState<string>(formData.selectedFood || '');
 
-   const handleSelect = (foodId: string) => {
-      setSelectedFood(foodId);
+   const handleSelect = (food: Food) => {
+      setSelectedFood(food.id);
+      updateFormData({selectedFood: food.id});
    };
 
    useImperativeHandle(ref, () => ({
@@ -67,7 +70,7 @@ const Step4 = forwardRef<StepProps, any>((_props, ref) => {
                <div
                   className={`food-item ${selectedFood === food.id ? "selected" : ""}`}
                   key={food.id}
-                  onClick={() => handleSelect(food.id)}>
+                  onClick={() => handleSelect(food)}>
                   <img
                      loading="lazy"
                      decoding="async"
