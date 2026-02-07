@@ -7,6 +7,7 @@ import Step2 from "./step/Step2";
 import Step3 from "./step/Step3";
 import { InviteSteps, type StepProps } from "./types";
 import Step4 from "./step/Step4";
+import Step5 from "./step/step5";
 
 const stepVariants = {
    initial: { opacity: 0, scale: 0.9 },
@@ -20,6 +21,7 @@ const Invite = () => {
    const [currentStep, setCurrentStep] = useState<number>(InviteSteps.Step1);
    const step3Ref = useRef<StepProps>(null);
    const step4Ref = useRef<StepProps>(null);
+   const step5Ref = useRef<StepProps>(null);
 
    const renderStep = () => {
       switch (currentStep) {
@@ -34,6 +36,9 @@ const Invite = () => {
 
          case InviteSteps.Step4:
             return <Step4 ref={step4Ref} />;
+
+         case InviteSteps.Step5:
+            return <Step5 ref={step5Ref} />;
 
          default: return null;
       }
