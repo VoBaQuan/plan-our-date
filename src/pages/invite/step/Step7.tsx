@@ -40,7 +40,7 @@ const Step7 = () => {
             </div>
             <div className="card excitement-card">
                <div className="card-text">
-                  <i className="fas fa-star"></i> Excitement Level: <strong>{formData.excitementLevel}/10</strong>
+                  <i style={{ color: '#ffc107' }} className="fas fa-star"></i> Excitement Level: <strong>{formData.excitementLevel}/10</strong>
                </div>
             </div>
          </div>

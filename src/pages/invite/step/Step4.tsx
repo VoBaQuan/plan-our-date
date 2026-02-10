@@ -2,9 +2,9 @@ import { forwardRef, useImperativeHandle, useState } from "react";
 import type { StepProps } from "../types";
 
 import food1 from '../../../assets/image/foods/pizza.webp';
-import food2 from '../../../assets/image/foods/pizza.webp';
-import food3 from '../../../assets/image/foods/pizza.webp';
-import food4 from '../../../assets/image/foods/pizza.webp';
+import food2 from '../../../assets/image/foods/sushi.jpg';
+import food3 from '../../../assets/image/foods/ramen.jpg';
+import food4 from '../../../assets/image/foods/haidilao.jpg';
 import { useInvite } from "../InviteContext";
 
 export interface Food {
@@ -31,7 +31,7 @@ const foodArray: Food[] = [
    },
    {
       id: 'food4',
-      name: 'Rice',
+      name: 'Haidilao',
       imgUrl: food4,
    }
 ];

@@ -70,6 +70,13 @@ const Invite = () => {
          if (!isValid) return;
       }
 
+      if (currentStep === InviteSteps.Step5) {
+
+         const isValid = step5Ref.current?.validate!();
+
+         if (!isValid) return;
+      }
+
       setCurrentStep(currentStep + 1);
    }
 

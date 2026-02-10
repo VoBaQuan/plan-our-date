@@ -1,11 +1,11 @@
 import { forwardRef, useImperativeHandle, useState } from "react";
 import type { StepProps } from "../types";
-
-import activity1 from '../../../assets/image/foods/pizza.webp';
-import activity2 from '../../../assets/image/foods/pizza.webp';
-import activity3 from '../../../assets/image/foods/pizza.webp';
-import activity4 from '../../../assets/image/foods/pizza.webp';
 import { useInvite } from "../InviteContext";
+
+import activity1 from '../../../assets/image/activities/shopping.jpg';
+import activity2 from '../../../assets/image/activities/photobooth.jpg';
+import activity3 from '../../../assets/image/activities/sunshine.jpg';
+import activity4 from '../../../assets/image/activities/karaoke.jpg';
 
 export interface Activity {
    id: string,
@@ -16,22 +16,22 @@ export interface Activity {
 const activityList: Activity[] = [
    {
       id: 'activity1',
-      name: 'Play game',
+      name: 'Shopping',
       imgUrl: activity1,
    },
    {
       id: 'activity2',
-      name: 'Play game',
+      name: 'Photobooth',
       imgUrl: activity2,
    },
    {
       id: 'activity3',
-      name: 'Play game',
+      name: 'Enjoy the sunset',
       imgUrl: activity3,
    },
    {
       id: 'activity4',
-      name: 'Play game',
+      name: 'Karaoke',
       imgUrl: activity4,
    }
 ]

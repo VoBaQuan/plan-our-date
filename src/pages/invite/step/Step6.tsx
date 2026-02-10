@@ -1,16 +1,21 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import excitedGif from '../../../assets/gif/giphy.gif';
 import { useInvite } from '../InviteContext';
 
 const Step6 = () => {
 
-   const [level, setLevel] = useState(6);
+   const [level, setLevel] = useState(1);
    const { updateFormData } = useInvite();
+
+   useEffect(() => {
+      updateFormData({ excitementLevel: 6 });
+      setLevel(1);
+   }, []);
 
    const handleSliderChange = (e: React.ChangeEvent<HTMLInputElement>) => {
       const newValue = parseInt(e.target.value);
       setLevel(newValue);
-      updateFormData({excitementLevel: newValue});
+      updateFormData({ excitementLevel: newValue });
 
       createFlyingHeart(e);
    };
