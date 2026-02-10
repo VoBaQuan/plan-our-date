@@ -1,15 +1,15 @@
 import { useEffect, useRef, useState } from "react";
 import './invite.css'
 import { AnimatePresence, motion } from "framer-motion";
-
+import { InviteSteps, type StepProps } from "./types";
+import { useInvite } from "./InviteContext";
 import Step1 from "./step/Step1";
 import Step2 from "./step/Step2";
 import Step3 from "./step/Step3";
-import { InviteSteps, type StepProps } from "./types";
 import Step4 from "./step/Step4";
-import { useInvite } from "./InviteContext";
-import Step5 from "./step/step5";
+import Step5 from "./step/Step5";
 import Step6 from "./step/Step6";
+import Step7 from "./step/Step7";
 
 const stepVariants = {
    initial: { opacity: 0, scale: 0.9 },
@@ -46,6 +46,9 @@ const Invite = () => {
 
          case InviteSteps.Step6:
             return <Step6 />;
+
+         case InviteSteps.Step7:
+            return <Step7 />;
 
          default: return null;
       }
@@ -97,7 +100,7 @@ const Invite = () => {
                   className="step"
                >
                   {renderStep()}
-                  {currentStep !== 1 && (
+                  {currentStep !== 1 && currentStep !== 7 && (
                      <div className="step-footer">
                         <button
                            className="modern-btn runaway-btn"

@@ -3,36 +3,36 @@ import '../invite.css'
 import type { StepProps } from "../types";
 import { useInvite } from '../InviteContext';
 
-interface Date {
+export interface Date {
    id: string,
-   value: string
+   date: string
+   time: string,
 }
 
 const dateArray: Date[] = [
    {
       id: 'date1',
-      value: '14/02/2026 19:00',
+      date: '14/02/2026',
+      time: '18:30'
    },
    {
       id: 'date2',
-      value: '14/02/2026 19:00',
+      date: '14/02/2026',
+      time: '19:00'
    },
    {
       id: 'date3',
-      value: '14/02/2026 19:00',
-   },
-   {
-      id: 'date4',
-      value: '14/02/2026 19:00',
+      date: '14/02/2026',
+      time: '19:30'
    },
 ]
 
 const Step3 = forwardRef<StepProps, any>((_props, ref) => {
    const { formData, updateFormData } = useInvite();
-   const [selectedDate, setSelectedDate] = useState<string>(formData.selectedDate || '');
+   const [selectedDate, setSelectedDate] = useState<string>(formData.selectedDate?.id || '');
    const handleSelect = (date: Date) => {
       setSelectedDate(date.id);
-      updateFormData({selectedDate: date.id})
+      updateFormData({selectedDate: date})
    };
 
    const [shakeError, setShakeError] = useState(false);
@@ -62,7 +62,7 @@ const Step3 = forwardRef<StepProps, any>((_props, ref) => {
                      key={date.id}
                      className={`date-box ${selectedDate === date.id ? 'selected' : ''}`}
                      onClick={() => handleSelect(date)}>
-                     {date.value}
+                     {date.date} {date.time}
                   </div>
                ))
             }

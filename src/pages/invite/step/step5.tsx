@@ -7,7 +7,7 @@ import activity3 from '../../../assets/image/foods/pizza.webp';
 import activity4 from '../../../assets/image/foods/pizza.webp';
 import { useInvite } from "../InviteContext";
 
-interface Activity {
+export interface Activity {
    id: string,
    name: string,
    imgUrl?: string,
@@ -40,11 +40,11 @@ const Step5 = forwardRef<StepProps, any>((_props, ref) => {
 
    const { formData, updateFormData } = useInvite();
    const [shakeError, setShakeError] = useState(false);
-   const [selectedActivity, setSelectedActivity] = useState<string | null>(formData.selectedFood || '');
+   const [selectedActivity, setSelectedActivity] = useState<string | null>(formData.selectedActivity?.id || '');
 
    const handleSelectActivity = (activity: Activity) => {
       setSelectedActivity(activity.id);
-      updateFormData({ selectedActivity: activity.id });
+      updateFormData({ selectedActivity: activity });
    };
 
    useImperativeHandle(ref, () => ({

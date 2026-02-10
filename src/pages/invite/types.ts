@@ -10,4 +10,5 @@ export const InviteSteps = {
    Step4: 4,
    Step5: 5,
    Step6: 6,
+   Step7: 7,
 }

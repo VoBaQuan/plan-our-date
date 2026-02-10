@@ -214,9 +214,8 @@ button:hover {
 /* Specific styling for navigation buttons to ensure they look consistent */
 .next-step,
 .send-step {
-    margin-top: 40px;
+    margin: 25px 0px 0px 0px;
     display: inline-block;
-    width: auto;
     min-width: 200px;
 }
 
@@ -552,6 +551,9 @@ input[type="range"]::-moz-range-thumb {
 }
 
 .recap-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
     /* Ticket Look */
     background: rgba(255, 255, 255, 0.9);
     padding: 30px;
@@ -582,7 +584,6 @@ input[type="range"]::-moz-range-thumb {
     display: block;
     height: 2px;
     background: repeating-linear-gradient(to right, #ccc 0, #ccc 10px, transparent 10px, transparent 20px);
-    margin: 20px 0;
 }
 
 /* Card inside recap (created by JS) */
@@ -591,7 +592,6 @@ input[type="range"]::-moz-range-thumb {
     border: none;
     box-shadow: none;
     padding: 0;
-    margin-bottom: 10px;
     text-align: left;
 }
 
@@ -601,7 +601,7 @@ input[type="range"]::-moz-range-thumb {
     gap: 15px;
     font-size: 1.1em;
     padding: 8px 0;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.135);
 }
 
 .recap-container .card-item i {
@@ -635,15 +635,12 @@ input[type="range"]::-moz-range-thumb {
     background: rgba(255, 255, 255, 0.4);
     border-radius: 15px;
     padding: 10px;
-    margin-bottom: 10px;
 }
 
 /* Final Confirm Button */
 .finish-step,
 .send-step {
-    padding: 1.2em 3em;
     font-size: 1.5em;
-    margin-top: 5px;
     /* Reduced gap to ticket */
     animation: pulse 2s infinite;
 }
@@ -709,6 +706,5 @@ input[type="range"]::-moz-range-thumb {
     .next-step,
     .send-step {
         width: 100%;
-        margin-top: 20px;
     }
 }

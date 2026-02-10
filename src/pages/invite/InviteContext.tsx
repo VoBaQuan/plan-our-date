@@ -1,9 +1,12 @@
 import { createContext, useContext, useState, type ReactNode } from "react";
+import type { Date } from "./step/Step3";
+import type { Food } from "./step/Step4";
+import type { Activity } from "./step/Step5";
 
 interface InviteData {
-   selectedDate?: string;
-   selectedFood?: string;
-   selectedActivity?: string;
+   selectedDate?: Date;
+   selectedFood?: Food;
+   selectedActivity?: Activity;
    excitementLevel?: number;
    message?: string;
 }

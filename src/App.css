@@ -764,7 +764,7 @@ main {
 @media (max-width: 900px) {
   .tiktok-section {
     padding: 20px 20px;
-    margin: 50px 20px 20px 20px;
+    margin: 100px 20px 20px 20px;
     /* Even smaller on mobile */
   }
 
