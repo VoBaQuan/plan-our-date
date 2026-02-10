@@ -3,6 +3,28 @@ import { useInvite } from "../InviteContext";
 const Step7 = () => {
    const { formData } = useInvite();
 
+   const showCustomAlert = (message: string) => {
+      const overlay = document.createElement('div');
+      overlay.className = 'custom-alert-overlay';
+
+      const box = document.createElement('div');
+      box.className = 'custom-alert-box';
+
+      const text = document.createElement('p');
+      text.className = 'custom-alert-text';
+      text.innerText = message;
+
+      const btn = document.createElement('button');
+      btn.className = 'custom-alert-btn';
+      btn.innerText = 'OKAY';
+      btn.onclick = () => overlay.remove();
+
+      box.appendChild(text);
+      box.appendChild(btn);
+      overlay.appendChild(box);
+      document.body.appendChild(overlay);
+   }
+
    return (
       <>
          <h3 className="final-heading">ALMOST THERE!</h3>
@@ -44,7 +66,11 @@ const Step7 = () => {
                </div>
             </div>
          </div>
-         <button className="btn send-step">Confirm Invitation</button>
+         <button
+            className="btn send-step"
+            onClick={() => showCustomAlert('test')}>
+            Confirm Invitation
+         </button>
       </>
    )
 }
