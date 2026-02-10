@@ -7,8 +7,9 @@ import Step2 from "./step/Step2";
 import Step3 from "./step/Step3";
 import { InviteSteps, type StepProps } from "./types";
 import Step4 from "./step/Step4";
-import Step5 from "./step/step5";
 import { useInvite } from "./InviteContext";
+import Step5 from "./step/step5";
+import Step6 from "./step/Step6";
 
 const stepVariants = {
    initial: { opacity: 0, scale: 0.9 },
@@ -18,6 +19,8 @@ const stepVariants = {
 };
 
 const Invite = () => {
+
+   const { formData, resetFormData } = useInvite();
 
    const [currentStep, setCurrentStep] = useState<number>(InviteSteps.Step1);
    const step3Ref = useRef<StepProps>(null);
@@ -40,6 +43,9 @@ const Invite = () => {
 
          case InviteSteps.Step5:
             return <Step5 ref={step5Ref} />;
+
+         case InviteSteps.Step6:
+            return <Step6 />;
 
          default: return null;
       }
@@ -68,9 +74,12 @@ const Invite = () => {
       if (currentStep === InviteSteps.Step1) return;
 
       setCurrentStep(currentStep - 1);
+
+      if (currentStep === InviteSteps.Step3) {
+         resetFormData();
+      }
    }
 
-   const { formData } = useInvite();
    useEffect(() => {
       console.log(" Current Context Data:", formData);
    }, [formData]);

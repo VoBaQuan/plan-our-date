@@ -447,15 +447,14 @@ button:hover {
 }
 
 /* --- STEP 6: EXCITEMENT SLIDER --- */
-#excitement-section {
+.excitement-section {
     width: 100%;
-    margin: 20px 0;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-#excitement-section p {
+.excitement-section p {
     margin-top: 40px;
     /* Prevent overlap with the large heart slider thumb */
     font-size: 1.2em;
@@ -485,12 +484,13 @@ input[type="range"]::-webkit-slider-thumb {
     width: 60px;
     height: 60px;
     /* Keeping original heart SVG as requested, unless pixel cat asset is found/provided later */
-    background: url('../assets/heart.svg') no-repeat center center;
+    background: url('../../assets/image/heart.svg') no-repeat center center;
     background-size: contain;
     cursor: pointer;
     border: none;
     filter: drop-shadow(0 4px 5px rgba(0, 0, 0, 0.2));
     transition: transform 0.2s;
+    margin-top: -14px;
 }
 
 input[type="range"]::-webkit-slider-thumb:hover {
@@ -521,7 +521,6 @@ input[type="range"]::-moz-range-thumb {
 
 .flying-heart {
     position: absolute;
-    font-family: 'Lineicons';
     font-size: 24px;
     color: #FF007f;
     z-index: 100;

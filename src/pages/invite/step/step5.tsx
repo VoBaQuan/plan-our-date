@@ -5,31 +5,32 @@ import activity1 from '../../../assets/image/foods/pizza.webp';
 import activity2 from '../../../assets/image/foods/pizza.webp';
 import activity3 from '../../../assets/image/foods/pizza.webp';
 import activity4 from '../../../assets/image/foods/pizza.webp';
+import { useInvite } from "../InviteContext";
 
-interface TodoList {
+interface Activity {
    id: string,
    name: string,
    imgUrl?: string,
 }
 
-const todoList: TodoList[] = [
+const activityList: Activity[] = [
    {
-      id: 'todo1',
+      id: 'activity1',
       name: 'Play game',
       imgUrl: activity1,
    },
    {
-      id: 'todo2',
+      id: 'activity2',
       name: 'Play game',
       imgUrl: activity2,
    },
    {
-      id: 'todo3',
+      id: 'activity3',
       name: 'Play game',
       imgUrl: activity3,
    },
    {
-      id: 'todo4',
+      id: 'activity4',
       name: 'Play game',
       imgUrl: activity4,
    }
@@ -37,11 +38,13 @@ const todoList: TodoList[] = [
 
 const Step5 = forwardRef<StepProps, any>((_props, ref) => {
 
+   const { formData, updateFormData } = useInvite();
    const [shakeError, setShakeError] = useState(false);
-   const [selectedActivity, setSelectedActivity] = useState<string | null>(null);
+   const [selectedActivity, setSelectedActivity] = useState<string | null>(formData.selectedFood || '');
 
-   const handleSelectActivity = (foodId: string) => {
-      setSelectedActivity(foodId);
+   const handleSelectActivity = (activity: Activity) => {
+      setSelectedActivity(activity.id);
+      updateFormData({ selectedActivity: activity.id });
    };
 
    useImperativeHandle(ref, () => ({
@@ -64,24 +67,21 @@ const Step5 = forwardRef<StepProps, any>((_props, ref) => {
          </div>
          <div className="activity-container">
             {
-               todoList.map((item) => (
+               activityList.map((activity) => (
                   <div
-                     key={item.id}
-                     className={`activity-item ${selectedActivity === item.id ? "selected" : ""}`}
-                     onClick={() => handleSelectActivity(item.id)}>
+                     key={activity.id}
+                     className={`activity-item ${selectedActivity === activity.id ? "selected" : ""}`}
+                     onClick={() => handleSelectActivity(activity)}>
                      <img
                         loading="lazy"
                         decoding="async"
-                        src={item.imgUrl}>
+                        src={activity.imgUrl}>
                      </img>
-                     <label>{item.name}</label>
+                     <label>{activity.name}</label>
                   </div>
                ))
             }
-
          </div>
-         {/* <div id="activity-images" className="activity-images-container"></div> */}
-         {/* <button type="button" className="btn next-step right-bottom-btn">Next</button> */}
       </>
    )
 
