@@ -745,12 +745,13 @@ main {
 }
 
 .tiktok-embed-container {
-  flex: 1;
-  display: flex;
-  justify-content: center;
+  flex: none;
+  width: 100%;
+  max-width: 300px;
+  margin: 0 auto;
+  aspect-ratio: 9 / 16;
   border-radius: 24px;
   overflow: hidden;
-  /* Optional: Glass frame for video */
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
 }
 

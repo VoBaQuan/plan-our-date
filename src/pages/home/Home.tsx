@@ -1,5 +1,4 @@
 import Header from './Header';
-import HowItWorkImage from './HowItWorkImage';
 import TiktokSection from './TiktokSection';
 
 const Home = () => {
