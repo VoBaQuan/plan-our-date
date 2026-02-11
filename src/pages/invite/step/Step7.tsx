@@ -3,7 +3,7 @@ import { useInvite } from "../InviteContext";
 const Step7 = () => {
    const { formData } = useInvite();
 
-   const showCustomAlert = (message: string) => {
+   const showCustomAlert = () => {
       const overlay = document.createElement('div');
       overlay.className = 'custom-alert-overlay';
 
@@ -12,11 +12,12 @@ const Step7 = () => {
 
       const text = document.createElement('p');
       text.className = 'custom-alert-text';
-      text.innerText = message;
+      text.innerText
+         = 'Cảm ơn em đã kiên nhẫn, bên cạnh và yêu thương anh, anh cũng rất thương em. Có nhiều lúc chúng ta đã gần như mất nhau nhưng cuối cùng chúng ta vẫn bên nhau. Anh không phải người hoàn hảo, anh muốn dành cho em thật nhiều thứ, chỉ cần thấy em hạnh phúc là đủ với anh. Nhưng mà cách anh yêu em đã không tốt, anh sai vì đã để em khóc rất nhiều lần. Vợ ơi, anh chưa bao giờ muốn mất em, anh chỉ mong tình yêu của tụi mình sẽ bình yên hơn, anh rất muốn yêu em và em cũng vậy. Em thật sự là một người con gái tuyệt vời, anh rất cần em trong cuộc đời của anh, hành trình của anh cần có em. Anh xin lỗi, anh yêu thương em nhiều lắm.';
 
       const btn = document.createElement('button');
       btn.className = 'custom-alert-btn';
-      btn.innerText = 'OKAY';
+      btn.innerText = 'Close';
       btn.onclick = () => overlay.remove();
 
       box.appendChild(text);
@@ -68,7 +69,7 @@ const Step7 = () => {
          </div>
          <button
             className="btn send-step"
-            onClick={() => showCustomAlert('test')}>
+            onClick={() => showCustomAlert()}>
             Confirm Invitation
          </button>
       </>
