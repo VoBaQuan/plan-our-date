@@ -5,7 +5,7 @@ import { useInvite } from "../InviteContext";
 import activity1 from '../../../assets/image/activities/shopping.jpg';
 import activity2 from '../../../assets/image/activities/photobooth.jpg';
 import activity3 from '../../../assets/image/activities/sunshine.jpg';
-import activity4 from '../../../assets/image/activities/karaoke.jpg';
+import activity4 from '../../../assets/image/activities/uniqlo.jpg';
 
 export interface Activity {
    id: string,
@@ -31,7 +31,7 @@ const activityList: Activity[] = [
    },
    {
       id: 'activity4',
-      name: 'Karaoke',
+      name: 'Shopping',
       imgUrl: activity4,
    }
 ]
