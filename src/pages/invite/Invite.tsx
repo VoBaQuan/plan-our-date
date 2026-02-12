@@ -20,7 +20,7 @@ const stepVariants = {
 
 const Invite = () => {
 
-   const { formData, resetFormData } = useInvite();
+   const { resetFormData } = useInvite();
 
    const [currentStep, setCurrentStep] = useState<number>(InviteSteps.Step1);
    const step3Ref = useRef<StepProps>(null);
