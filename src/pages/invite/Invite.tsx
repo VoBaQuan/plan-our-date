@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import './invite.css'
 import { AnimatePresence, motion } from "framer-motion";
 import { InviteSteps, type StepProps } from "./types";
@@ -89,10 +89,6 @@ const Invite = () => {
          resetFormData();
       }
    }
-
-   useEffect(() => {
-      console.log(" Current Context Data:", formData);
-   }, [formData]);
 
    return (
       <main>

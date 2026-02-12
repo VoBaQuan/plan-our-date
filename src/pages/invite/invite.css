@@ -534,6 +534,11 @@ button:hover {
     align-items: center;
 }
 
+.excitement-section img {
+    height: 200px;
+    width: 200px;
+}
+
 .excitement-section p {
     margin-top: 40px;
     /* Prevent overlap with the large heart slider thumb */
@@ -747,7 +752,7 @@ input[type="range"]::-moz-range-thumb {
 .shy-gif img,
 .happy-gif img {
     border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    /* box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); */
     margin-bottom: 32px;
     max-width: 200px;
     max-height: 200px;

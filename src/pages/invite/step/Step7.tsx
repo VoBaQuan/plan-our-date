@@ -1,7 +1,10 @@
+import { useNavigate } from "react-router-dom";
 import { useInvite } from "../InviteContext";
 
 const Step7 = () => {
    const { formData } = useInvite();
+   const navigate = useNavigate();
+   const repoName = "/plan-our-date";
 
    const showCustomAlert = () => {
       const overlay = document.createElement('div');
@@ -18,7 +21,10 @@ const Step7 = () => {
       const btn = document.createElement('button');
       btn.className = 'custom-alert-btn';
       btn.innerText = 'Close';
-      btn.onclick = () => overlay.remove();
+      btn.onclick = () => {
+         navigate(repoName);
+         overlay.remove();
+      };
 
       box.appendChild(text);
       box.appendChild(btn);

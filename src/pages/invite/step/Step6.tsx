@@ -1,19 +1,35 @@
 import { useEffect, useState } from 'react';
-import excitedGif from '../../../assets/gif/giphy.gif';
 import { useInvite } from '../InviteContext';
+import excitedGif from '../../../assets/gif/giphy.gif';
+import shy2 from '../../../assets/gif/shy2.gif';
+import sad from '../../../assets/gif/sad.gif';
 
 const Step6 = () => {
 
-   const [level, setLevel] = useState(1);
+   const [level, setLevel] = useState(5);
+   const [excitedLevel, setExcitedLevel] = useState<string>(shy2);
    const { updateFormData } = useInvite();
 
    useEffect(() => {
-      updateFormData({ excitementLevel: 6 });
-      setLevel(1);
+      updateFormData({ excitementLevel: 5 });
+      setLevel(5);
    }, []);
 
    const handleSliderChange = (e: React.ChangeEvent<HTMLInputElement>) => {
       const newValue = parseInt(e.target.value);
+
+      if (newValue <= 4) {
+         setExcitedLevel(sad);
+      }
+
+      if (newValue >= 5) {
+         setExcitedLevel(shy2);
+      }
+
+      if (newValue >=9 ) {
+         setExcitedLevel(excitedGif);
+      }
+
       setLevel(newValue);
       updateFormData({ excitementLevel: newValue });
 
@@ -48,7 +64,7 @@ const Step6 = () => {
             <img
                loading="lazy"
                decoding="async"
-               src={excitedGif}>
+               src={excitedLevel}>
             </img>
             <input
                type="range"
