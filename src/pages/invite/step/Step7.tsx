@@ -20,7 +20,7 @@ const Step7 = () => {
 
       const btn = document.createElement('button');
       btn.className = 'custom-alert-btn';
-      btn.innerText = 'Close';
+      btn.innerText = 'Stay with me';
       btn.onclick = () => {
          navigate(repoName);
          overlay.remove();
