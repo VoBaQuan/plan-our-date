@@ -59,7 +59,7 @@ const Step6 = () => {
 
    return (
       <>
-         <h2> HOW EXCITED ARE YOU?</h2>
+         <h2>HOW MUCH DO YOU LOVE ME?</h2>
          <div className="excitement-section">
             <img
                loading="lazy"
@@ -73,7 +73,7 @@ const Step6 = () => {
                value={level}
                onChange={handleSliderChange}>
             </input>
-            <p>Your excitement level is: <span>{level}</span></p>
+            <p>Max level of love: <span>{level}</span></p>
          </div>
       </>
    )

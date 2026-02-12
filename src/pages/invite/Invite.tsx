@@ -55,8 +55,6 @@ const Invite = () => {
    };
 
    const nextStep = () => {
-      // return khi là step cuối
-
       if (currentStep === InviteSteps.Step3) {
          const isValid = step3Ref.current?.validate!();
 
