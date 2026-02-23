@@ -1,10 +1,10 @@
-import hero from '../../assets/image/hugyou.jpg';
-import landing from '../../assets/image/kissingyou.jpg';
-import kiss from '../../assets/image/kiss.png';
-import kiss1 from '../../assets/image/kiss1.png';
-import kiss2 from '../../assets/image/kiss2.png';
-import kiss3 from '../../assets/image/kiss3.png';
-import kiss4 from '../../assets/image/kiss4.png';
+import hero from '../../../assets/image/hugyou.jpg';
+import landing from '../../../assets/image/kissingyou.jpg';
+import kiss from '../../../assets/image/kiss.png';
+import kiss1 from '../../../assets/image/kiss1.png';
+import kiss2 from '../../../assets/image/kiss2.png';
+import kiss3 from '../../../assets/image/kiss3.png';
+import kiss4 from '../../../assets/image/kiss4.png';
 import { useNavigate } from 'react-router-dom';
 
 

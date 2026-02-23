@@ -1,5 +1,5 @@
-import Header from './Header';
-import TiktokSection from './TiktokSection';
+import Header from './components/Header';
+import TiktokSection from './components/TiktokSection';
 
 const Home = () => {
    return (

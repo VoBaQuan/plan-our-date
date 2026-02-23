@@ -1,4 +1,4 @@
-import video from '../../assets/video/loving.mp4';
+import video from '../../../assets/video/loving.mp4';
 
 const TiktokSection = () => {
    return (
