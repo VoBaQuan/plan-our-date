@@ -1,12 +1,12 @@
-import hero from '../../../assets/image/hugyou.jpg';
-import landing from '../../../assets/image/kissingyou.jpg';
-import kiss from '../../../assets/image/kiss.png';
-import kiss1 from '../../../assets/image/kiss1.png';
-import kiss2 from '../../../assets/image/kiss2.png';
-import kiss3 from '../../../assets/image/kiss3.png';
-import kiss4 from '../../../assets/image/kiss4.png';
-import { useNavigate } from 'react-router-dom';
+import hero from '../../../assets/image/album/hug_you.jpg';
+import landing from '../../../assets/image/album/kissing_you.jpg';
+import kiss from '../../../assets/image/kisses/kiss.png';
+import kiss1 from '../../../assets/image/kisses/kiss1.png';
+import kiss2 from '../../../assets/image/kisses/kiss2.png';
+import kiss3 from '../../../assets/image/kisses/kiss3.png';
+import kiss4 from '../../../assets/image/kisses/kiss4.png';
 
+import { useNavigate } from 'react-router-dom';
 
 const Header = () => {
    const navigate = useNavigate();
@@ -19,7 +19,6 @@ const Header = () => {
       <header className="hero-section">
          <div className="hero-content">
             <h1>You just stay beautiful, I’ll take care of the rest</h1>
-            {/* <p className="hero-tagline">We handle the details—you focus on the romance!</p> */}
             <a
                className="cta-button-large"
                onClick={startInvite}>
