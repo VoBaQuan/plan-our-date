@@ -36,6 +36,7 @@ jobs:
         run: |
           git config --global user.email "vobaquan0147@gmail.com"
           git config --global user.name "Quan Vo"
+          git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/vobaquan/plan-our-date.git
 
       # 6. Deploy lên GitHub Pages (giống hệt npm run deploy của bạn)
       - name: Deploy to GitHub Pages
