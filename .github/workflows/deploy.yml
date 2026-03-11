@@ -4,7 +4,7 @@ name: 🚀 Deploy to GitHub Pages
 on:
   push:
     branches:
-      - main   # Tự động chạy khi push lên branch main
+      - main
 
 jobs:
   deploy:
@@ -12,18 +12,15 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # 1. Checkout source code
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      # 2. Cài Node.js
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 20
           cache: 'npm'
 
-      # 3. Cài dependencies (bao gồm gh-pages)
       - name: Install dependencies
         run: npm ci
 
@@ -31,15 +28,13 @@ jobs:
       - name: Build
         run: npm run build
 
-      # 5. Cấu hình Git identity cho gh-pages
       - name: Configure Git
         run: |
           git config --global user.email "vobaquan0147@gmail.com"
           git config --global user.name "Quan Vo"
           git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/vobaquan/plan-our-date.git
 
-      # 6. Deploy lên GitHub Pages (giống hệt npm run deploy của bạn)
       - name: Deploy to GitHub Pages
         run: npm run deploy
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # GitHub tự cấp, không cần tạo thêm
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
