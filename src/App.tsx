@@ -7,7 +7,7 @@ import MainLayout from './layouts/MainLayout'
 import Invite from './pages/invite/Invite';
 import { InviteProvider } from './pages/invite/InviteContext';
 
-const PageWrapper = ({ children }: any) => (
+const PageWrapper = ({ children }: { children: React.ReactNode }) => (
   <motion.div
     initial={{ opacity: 0, rotateY: 90 }}
     animate={{ opacity: 1, rotateY: 0 }}

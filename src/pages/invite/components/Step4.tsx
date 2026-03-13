@@ -5,7 +5,7 @@ import food1 from '../../../assets/image/foods/pizza.webp';
 import food2 from '../../../assets/image/foods/sushi.jpg';
 import food3 from '../../../assets/image/foods/ramen.jpg';
 import food4 from '../../../assets/image/foods/haidilao.jpg';
-import { useInvite } from "../InviteContext";
+import { useInvite } from "../useInvite";
 
 export interface Food {
    id: string,
@@ -36,7 +36,7 @@ const foodArray: Food[] = [
    }
 ];
 
-const Step4 = forwardRef<StepProps, any>((_props, ref) => {
+const Step4 = forwardRef<StepProps, object>((_props, ref) => {
 
    const { formData, updateFormData } = useInvite();
    const [shakeError, setShakeError] = useState(false);

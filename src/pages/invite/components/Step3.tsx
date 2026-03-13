@@ -1,7 +1,7 @@
 import { forwardRef, useImperativeHandle, useState } from 'react';
 import '../invite.css'
 import type { StepProps } from "../types";
-import { useInvite } from '../InviteContext';
+import { useInvite } from '../useInvite';
 
 export interface Date {
    id: string,
@@ -27,7 +27,7 @@ const dateArray: Date[] = [
    },
 ]
 
-const Step3 = forwardRef<StepProps, any>((_props, ref) => {
+const Step3 = forwardRef<StepProps, object>((_props, ref) => {
    const { formData, updateFormData } = useInvite();
    const [selectedDate, setSelectedDate] = useState<string>(formData.selectedDate?.id || '');
    const handleSelect = (date: Date) => {

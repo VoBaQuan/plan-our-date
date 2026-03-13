@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useInvite } from '../InviteContext';
+import { useInvite } from '../useInvite';
 import excitedGif from '../../../assets/gif/giphy.gif';
 import shy2 from '../../../assets/gif/shy2.gif';
 import sad from '../../../assets/gif/sad.gif';
@@ -12,8 +12,7 @@ const Step6 = () => {
 
    useEffect(() => {
       updateFormData({ excitementLevel: 5 });
-      setLevel(5);
-   }, []);
+   }, [updateFormData]);
 
    const handleSliderChange = (e: React.ChangeEvent<HTMLInputElement>) => {
       const newValue = parseInt(e.target.value);
