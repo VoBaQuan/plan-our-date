@@ -12,17 +12,17 @@ export interface Date {
 const dateArray: Date[] = [
    {
       id: 'date1',
-      date: '14/02/2026',
+      date: '08/03/2026',
       time: '18:30'
    },
    {
       id: 'date2',
-      date: '14/02/2026',
+      date: '08/03/2026',
       time: '19:00'
    },
    {
       id: 'date3',
-      date: '14/02/2026',
+      date: '08/03/2026',
       time: '19:30'
    },
 ]

@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { useInvite } from "../InviteContext";
+import { useInvite } from "../useInvite";
 
 const Step7 = () => {
    const { formData } = useInvite();
