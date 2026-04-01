@@ -1,14 +1,15 @@
 import { useEffect, useState } from 'react';
 import { useInvite } from '../useInvite';
+import { useLanguage } from '../../../common/context/LanguageContext';
 import excitedGif from '../../../assets/gif/giphy.gif';
 import shy2 from '../../../assets/gif/shy2.gif';
 import sad from '../../../assets/gif/sad.gif';
 
 const Step6 = () => {
-
    const [level, setLevel] = useState(5);
    const [excitedLevel, setExcitedLevel] = useState<string>(shy2);
    const { updateFormData } = useInvite();
+   const { t } = useLanguage();
 
    useEffect(() => {
       updateFormData({ excitementLevel: 5 });
@@ -17,17 +18,9 @@ const Step6 = () => {
    const handleSliderChange = (e: React.ChangeEvent<HTMLInputElement>) => {
       const newValue = parseInt(e.target.value);
 
-      if (newValue <= 4) {
-         setExcitedLevel(sad);
-      }
-
-      if (newValue >= 5) {
-         setExcitedLevel(shy2);
-      }
-
-      if (newValue >=9 ) {
-         setExcitedLevel(excitedGif);
-      }
+      if (newValue <= 4) setExcitedLevel(sad);
+      if (newValue >= 5) setExcitedLevel(shy2);
+      if (newValue >= 9) setExcitedLevel(excitedGif);
 
       setLevel(newValue);
       updateFormData({ excitementLevel: newValue });
@@ -51,20 +44,14 @@ const Step6 = () => {
       heart.style.left = `${thumbX}px`;
       heart.style.top = `${thumbY}px`;
 
-      setTimeout(() => {
-         heart.remove();
-      }, 2000);
+      setTimeout(() => { heart.remove(); }, 2000);
    }
 
    return (
       <>
-         <h2>HOW MUCH DO YOU LOVE ME?</h2>
+         <h2>{t.step6.title}</h2>
          <div className="excitement-section">
-            <img
-               loading="lazy"
-               decoding="async"
-               src={excitedLevel}>
-            </img>
+            <img loading="lazy" decoding="async" src={excitedLevel}></img>
             <input
                type="range"
                min="1"
@@ -72,12 +59,10 @@ const Step6 = () => {
                value={level}
                onChange={handleSliderChange}>
             </input>
-            <p>Max level of love: <span>{level}</span></p>
+            <p>{t.step6.levelLabel} <span>{level}</span></p>
          </div>
       </>
    )
 }
 
-export default Step6
-
-
+export default Step6;

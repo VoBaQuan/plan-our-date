@@ -10,6 +10,7 @@ import Step5 from "./components/Step5";
 import Step6 from "./components/Step6";
 import Step7 from "./components/Step7";
 import { useInvite } from "./useInvite";
+import { useLanguage } from "../../common/context/LanguageContext";
 
 const stepVariants = {
    initial: { opacity: 0, scale: 0.9 },
@@ -21,6 +22,7 @@ const stepVariants = {
 const Invite = () => {
 
    const { resetFormData } = useInvite();
+   const { t } = useLanguage();
 
    const [currentStep, setCurrentStep] = useState<number>(InviteSteps.Step1);
    const step3Ref = useRef<StepProps>(null);
@@ -106,12 +108,12 @@ const Invite = () => {
                         <button
                            className="modern-btn runaway-btn"
                            onClick={backStep}>
-                           Back
+                           {t.invite.back}
                         </button>
                         <button
                            className="long-effect-btn"
                            onClick={nextStep}>
-                           Next
+                           {t.invite.next}
                         </button>
                      </div>
                   )}

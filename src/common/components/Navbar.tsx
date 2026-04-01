@@ -1,7 +1,6 @@
 import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
-
    const navigate = useNavigate();
    const repoName = "/plan-our-date";
 
@@ -12,9 +11,7 @@ const Navbar = () => {
    return (
       <nav onClick={redirectHome}>
          <div className="navbar-left">
-            <h1>
-               Bá Quận
-            </h1>
+            <h1>Bá Quận</h1>
          </div>
          <div className="nav-heart">
             <div className="heart-icon-glow">
@@ -22,9 +19,7 @@ const Navbar = () => {
             </div>
          </div>
          <div className="navbar-left">
-            <h1>
-               Khánh Linh
-            </h1>
+            <h1>Khánh Linh</h1>
          </div>
       </nav>
    )

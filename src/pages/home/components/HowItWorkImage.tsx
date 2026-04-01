@@ -1,29 +1,27 @@
+import { useLanguage } from '../../../common/context/LanguageContext';
 
 const HowItWorkImage = () => {
+   const { t } = useLanguage();
+
    return (
       <section id="how-it-works-image" className="flex-container">
          <div className="box-wrapper">
-            <h2 className="section-title">How It Works</h2>
+            <h2 className="section-title">{t.howItWorks.title}</h2>
             <div className="steps-grid">
-               {/* <!-- Step 1 --> */}
                <div className="glass-panel step-card">
                   <div className="step-number">1</div>
-                  <h3>Create Invitation</h3>
-                  <p>Choose your ideal date and time, select a meal, and even pick an activity if you wish.</p>
+                  <h3>{t.howItWorks.step1Title}</h3>
+                  <p>{t.howItWorks.step1Desc}</p>
                </div>
-
-               {/* <!-- Step 2 --> */}
                <div className="glass-panel step-card">
                   <div className="step-number">2</div>
-                  <h3>Share the Link</h3>
-                  <p>We transform your choices into an adorable invitation to send to your special someone.</p>
+                  <h3>{t.howItWorks.step2Title}</h3>
+                  <p>{t.howItWorks.step2Desc}</p>
                </div>
-
-               {/* <!-- Step 3 --> */}
                <div className="glass-panel step-card">
                   <div className="step-number">3</div>
-                  <h3>Get a Yes!</h3>
-                  <p>Your loved one fills out the invitation, and you view their reply on your dashboard.</p>
+                  <h3>{t.howItWorks.step3Title}</h3>
+                  <p>{t.howItWorks.step3Desc}</p>
                </div>
             </div>
          </div>

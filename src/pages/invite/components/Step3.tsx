@@ -2,6 +2,7 @@ import { forwardRef, useImperativeHandle, useState } from 'react';
 import '../invite.css'
 import type { StepProps } from "../types";
 import { useInvite } from '../useInvite';
+import { useLanguage } from '../../../common/context/LanguageContext';
 
 export interface Date {
    id: string,
@@ -10,32 +11,21 @@ export interface Date {
 }
 
 const dateArray: Date[] = [
-   {
-      id: 'date1',
-      date: '08/03/2026',
-      time: '18:30'
-   },
-   {
-      id: 'date2',
-      date: '08/03/2026',
-      time: '19:00'
-   },
-   {
-      id: 'date3',
-      date: '08/03/2026',
-      time: '19:30'
-   },
+   { id: 'date1', date: '08/03/2026', time: '18:30' },
+   { id: 'date2', date: '08/03/2026', time: '19:00' },
+   { id: 'date3', date: '08/03/2026', time: '19:30' },
 ]
 
 const Step3 = forwardRef<StepProps, object>((_props, ref) => {
    const { formData, updateFormData } = useInvite();
+   const { t } = useLanguage();
    const [selectedDate, setSelectedDate] = useState<string>(formData.selectedDate?.id || '');
+   const [shakeError, setShakeError] = useState(false);
+
    const handleSelect = (date: Date) => {
       setSelectedDate(date.id);
-      updateFormData({selectedDate: date})
+      updateFormData({ selectedDate: date })
    };
-
-   const [shakeError, setShakeError] = useState(false);
 
    useImperativeHandle(ref, () => ({
       validate: () => {
@@ -50,22 +40,19 @@ const Step3 = forwardRef<StepProps, object>((_props, ref) => {
 
    return (
       <>
-         <h2>WHEN ARE YOU FREE?</h2>
-         <div
-            className={`error-message ${shakeError ? 'shake' : ''}`}>
-            You decide the time, my love! ❤️
+         <h2>{t.step3.title}</h2>
+         <div className={`error-message ${shakeError ? 'shake' : ''}`}>
+            {t.step3.hint}
          </div>
          <div className="dates-container">
-            {
-               dateArray.map((date: Date) => (
-                  <div
-                     key={date.id}
-                     className={`date-box ${selectedDate === date.id ? 'selected' : ''}`}
-                     onClick={() => handleSelect(date)}>
-                     {date.date} {date.time}
-                  </div>
-               ))
-            }
+            {dateArray.map((date: Date) => (
+               <div
+                  key={date.id}
+                  className={`date-box ${selectedDate === date.id ? 'selected' : ''}`}
+                  onClick={() => handleSelect(date)}>
+                  {date.date} {date.time}
+               </div>
+            ))}
          </div>
       </>
    )

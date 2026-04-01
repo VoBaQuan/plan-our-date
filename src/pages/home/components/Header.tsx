@@ -7,9 +7,11 @@ import kiss3 from '../../../assets/image/kisses/kiss3.png';
 import kiss4 from '../../../assets/image/kisses/kiss4.png';
 
 import { useNavigate } from 'react-router-dom';
+import { useLanguage } from '../../../common/context/LanguageContext';
 
 const Header = () => {
    const navigate = useNavigate();
+   const { t } = useLanguage();
 
    const startInvite = () => {
       navigate('invite')
@@ -18,11 +20,11 @@ const Header = () => {
    return (
       <header className="hero-section">
          <div className="hero-content">
-            <h1>You just stay beautiful, I’ll take care of the rest</h1>
+            <h1>{t.header.title}</h1>
             <a
                className="cta-button-large"
                onClick={startInvite}>
-               Continuing our journey of love
+               {t.header.cta}
             </a>
             <div className="user-proof">
                <div className="avatars">
@@ -32,7 +34,7 @@ const Header = () => {
                   <img src={kiss3} alt="User 2" className="avatar-circle"></img>
                   <img src={kiss4} alt="User 2" className="avatar-circle"></img>
                </div>
-               <p>Give you <strong>9,999+</strong> kisses!</p>
+               <p>{t.header.userProof}</p>
             </div>
          </div>
          <div className="hero-image">

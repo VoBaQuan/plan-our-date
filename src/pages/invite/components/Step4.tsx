@@ -1,11 +1,12 @@
 import { forwardRef, useImperativeHandle, useState } from "react";
 import type { StepProps } from "../types";
+import { useInvite } from "../useInvite";
+import { useLanguage } from "../../../common/context/LanguageContext";
 
 import food1 from '../../../assets/image/foods/pizza.webp';
 import food2 from '../../../assets/image/foods/sushi.jpg';
 import food3 from '../../../assets/image/foods/ramen.jpg';
 import food4 from '../../../assets/image/foods/haidilao.jpg';
-import { useInvite } from "../useInvite";
 
 export interface Food {
    id: string,
@@ -13,38 +14,23 @@ export interface Food {
    imgUrl?: string,
 }
 
-const foodArray: Food[] = [
-   {
-      id: 'food1',
-      name: 'Pizza',
-      imgUrl: food1,
-   },
-   {
-      id: 'food2',
-      name: 'Sushi',
-      imgUrl: food2,
-   },
-   {
-      id: 'food3',
-      name: 'Ramen',
-      imgUrl: food3,
-   },
-   {
-      id: 'food4',
-      name: 'Haidilao',
-      imgUrl: food4,
-   }
-];
+const foodImgs = [food1, food2, food3, food4];
 
 const Step4 = forwardRef<StepProps, object>((_props, ref) => {
-
    const { formData, updateFormData } = useInvite();
+   const { t } = useLanguage();
    const [shakeError, setShakeError] = useState(false);
    const [selectedFood, setSelectedFood] = useState<string>(formData.selectedFood?.id || '');
 
+   const foodArray: Food[] = t.step4.foods.map((name, i) => ({
+      id: `food${i + 1}`,
+      name,
+      imgUrl: foodImgs[i],
+   }));
+
    const handleSelect = (food: Food) => {
       setSelectedFood(food.id);
-      updateFormData({selectedFood: food});
+      updateFormData({ selectedFood: food });
    };
 
    useImperativeHandle(ref, () => ({
@@ -60,10 +46,9 @@ const Step4 = forwardRef<StepProps, object>((_props, ref) => {
 
    return (
       <>
-         <h2>WHAT WOULD YOU LIKE TO EAT?</h2>
-         <div
-            className={`error-message ${shakeError ? 'shake' : ''}`}>
-            Pick whatever you want to eat, baby! ❤️
+         <h2>{t.step4.title}</h2>
+         <div className={`error-message ${shakeError ? 'shake' : ''}`}>
+            {t.step4.hint}
          </div>
          <div className="food-container">
             {foodArray.map((food: Food) => (

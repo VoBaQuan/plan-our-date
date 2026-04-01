@@ -1,8 +1,10 @@
 import { useNavigate } from "react-router-dom";
 import { useInvite } from "../useInvite";
+import { useLanguage } from "../../../common/context/LanguageContext";
 
 const Step7 = () => {
    const { formData } = useInvite();
+   const { t } = useLanguage();
    const navigate = useNavigate();
    const repoName = "/plan-our-date";
 
@@ -15,12 +17,11 @@ const Step7 = () => {
 
       const text = document.createElement('p');
       text.className = 'custom-alert-text';
-      text.innerText
-         = 'Cảm ơn em đã kiên nhẫn, bên cạnh và yêu thương anh, anh cũng rất thương em. Có nhiều lúc chúng ta đã gần như mất nhau nhưng cuối cùng chúng ta vẫn bên nhau. Anh không phải người hoàn hảo, anh muốn dành cho em thật nhiều thứ, chỉ cần thấy em hạnh phúc là đủ với anh. Nhưng mà cách anh yêu em đã không tốt, anh sai vì đã để em khóc rất nhiều lần. Vợ ơi, anh chưa bao giờ muốn mất em, anh chỉ mong tình yêu của tụi mình sẽ bình yên hơn, anh rất muốn yêu em và em cũng vậy. Em thật sự là một người con gái tuyệt vời, anh rất cần em trong cuộc đời của anh, hành trình của anh cần có em. Anh xin lỗi vì đã làm em tổn thương, đã làm em buồn, nhưng anh đang trong quá trình hoàn thiện bản thân mình để có thể cho em được nhiều hạnh phúc hơn, anh rất muốn điều đó. anh yêu thương em nhiều lắm ❤️';
+      text.innerText = t.step7.alertText;
 
       const btn = document.createElement('button');
       btn.className = 'custom-alert-btn';
-      btn.innerText = 'Stay with me';
+      btn.innerText = t.step7.alertBtn;
       btn.onclick = () => {
          navigate(repoName);
          overlay.remove();
@@ -34,10 +35,9 @@ const Step7 = () => {
 
    return (
       <>
-         <h3 className="final-heading">ALMOST THERE!</h3>
-         <p
-            style={{ textAlign: 'center', marginBottom: '20px', color: 'rgb(85, 85, 85)' }}>
-            This is a preview of your interactive invitation.
+         <h3 className="final-heading">{t.step7.heading}</h3>
+         <p style={{ textAlign: 'center', marginBottom: '20px', color: 'rgb(85, 85, 85)' }}>
+            {t.step7.subtitle}
          </p>
          <div className="recap-container">
             <div className="card date-time-card">
@@ -55,7 +55,7 @@ const Step7 = () => {
                   loading="lazy"
                   decoding="async">
                </img>
-               <div className="card-text">Your chosen meal: <strong>{formData.selectedFood?.name}</strong></div>
+               <div className="card-text">{t.step7.meal} <strong>{formData.selectedFood?.name}</strong></div>
             </div>
             <div className="card activity-card">
                <img
@@ -64,19 +64,18 @@ const Step7 = () => {
                   loading="lazy"
                   decoding="async">
                </img>
-               <div className="card-text">Your chosen activity: <strong>{formData.selectedActivity?.name}</strong>
-               </div>
+               <div className="card-text">{t.step7.activity} <strong>{formData.selectedActivity?.name}</strong></div>
             </div>
             <div className="card excitement-card">
                <div className="card-text">
-                  <i style={{ color: '#ffc107' }} className="fas fa-star"></i> Excitement Level: <strong>{formData.excitementLevel}/10</strong>
+                  <i style={{ color: '#ffc107' }} className="fas fa-star"></i> {t.step7.excitement} <strong>{formData.excitementLevel}/10</strong>
                </div>
             </div>
          </div>
          <button
             className="btn send-step"
             onClick={() => showCustomAlert()}>
-            Confirm Invitation
+            {t.step7.confirm}
          </button>
       </>
    )

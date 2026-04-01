@@ -579,6 +579,61 @@ main {
   line-height: 1.6;
 }
 
+/* Language FAB — heart shape */
+.lang-fab {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  z-index: 1100;
+  width: 56px;
+  height: 52px;
+  border: none;
+  padding: 0 0 6px 0;
+  background: linear-gradient(135deg, #ff3380 0%, #ff99cc 100%);
+  clip-path: path("M 28 48 C 14 37 0 27 0 15 A 17 17 0 0 1 28 6 A 17 17 0 0 1 56 15 C 56 27 42 37 28 48 Z");
+  filter: drop-shadow(0 4px 10px rgba(255, 0, 127, 0.45));
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1px;
+  transition: transform 0.2s ease, filter 0.2s ease;
+  animation: heart-pulse 2.5s ease-in-out infinite;
+}
+
+.lang-fab:hover {
+  transform: scale(1.15);
+  filter: drop-shadow(0 6px 16px rgba(255, 0, 127, 0.6));
+  animation-play-state: paused;
+}
+
+.lang-fab:active {
+  transform: scale(0.9);
+}
+
+.lang-fab-flag {
+  font-size: 1.1em;
+  line-height: 1;
+}
+
+.lang-fab-label {
+  font-size: 0.45em;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 0.5px;
+  font-family: var(--font-main);
+  line-height: 1;
+}
+
+@keyframes heart-pulse {
+  0%, 100% { transform: scale(1); }
+  15%       { transform: scale(1.1); }
+  30%       { transform: scale(1); }
+  45%       { transform: scale(1.07); }
+  60%       { transform: scale(1); }
+}
+
 /* Auth Button in Navbar */
 .btn-auth-glass {
   background: linear-gradient(135deg, #FF007f 0%, #ff66b2 100%);

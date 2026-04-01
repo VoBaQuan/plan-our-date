@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import '../invite.css';
 import type { StepProps } from "../types";
 import { motion, type Variants } from "framer-motion";
+import { useLanguage } from "../../../common/context/LanguageContext";
 
 import shyGif from '../../../assets/gif/shy1.gif';
 
@@ -10,6 +11,7 @@ const Step1 = ({ onNext }: StepProps) => {
    const [noScale, setNoScale] = useState(1);
    const [pulseYes, setPulseYes] = useState(false);
    const isMobile = window.innerWidth <= 768;
+   const { t } = useLanguage();
 
    const handleNoClick = () => {
       if (noScale > 0.2) {
@@ -28,11 +30,11 @@ const Step1 = ({ onNext }: StepProps) => {
    const pulseVariants: Variants = {
       rest: { scale: 1, transition: { duration: 0.2 } },
       pulsing: {
-         scale: [1, 2, 1], // To lên 2 lần rồi về 1
+         scale: [1, 2, 1],
          transition: {
-            duration: 0.3, // Thời gian cho một nhịp đập
+            duration: 0.3,
             ease: "easeInOut",
-            repeat: 0, // Chỉ đập một lần
+            repeat: 0,
          }
       }
    };
@@ -82,7 +84,7 @@ const Step1 = ({ onNext }: StepProps) => {
 
    return (
       <>
-         <h2><strong>Do you love me ?</strong></h2>
+         <h2><strong>{t.step1.question}</strong></h2>
          <div className="shy-gif">
             <img
                loading="lazy"
@@ -107,7 +109,7 @@ const Step1 = ({ onNext }: StepProps) => {
                         visibility: noScale <= 0.2 ? "hidden" : "visible",
                      }}
                   >
-                     No
+                     {t.step1.no}
                   </motion.button>
                )
             }
@@ -116,7 +118,7 @@ const Step1 = ({ onNext }: StepProps) => {
                   <button
                      ref={noButtonRef}
                      className="modern-btn runaway-btn">
-                     No
+                     {t.step1.no}
                   </button>
                )
             }
@@ -127,7 +129,7 @@ const Step1 = ({ onNext }: StepProps) => {
                transition={{ type: "spring", stiffness: 500, damping: 30 }}
                className="modern-btn"
                onClick={onNext}>
-               Yes
+               {t.step1.yes}
             </motion.button>
          </div>
       </>
