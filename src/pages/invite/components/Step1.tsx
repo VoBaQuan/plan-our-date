@@ -84,7 +84,7 @@ const Step1 = ({ onNext }: StepProps) => {
 
    return (
       <>
-         <h2><strong>{t.step1.question}</strong></h2>
+         <h2>{t.step1.question}</h2>
          <div className="shy-gif">
             <img
                loading="lazy"

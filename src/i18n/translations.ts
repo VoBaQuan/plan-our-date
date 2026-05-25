@@ -128,7 +128,7 @@ export const translations = {
       levelLabel: "Mức độ yêu tối đa:",
     },
     step7: {
-      heading: "SẮP XONG RỒI!",
+      heading: "SẮP XONG RÙI!",
       subtitle: "Đây là bản xem trước lời mời tương tác của em.",
       meal: "Món ăn em chọn:",
       activity: "Hoạt động em chọn:",

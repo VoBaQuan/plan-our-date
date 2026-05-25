@@ -35,7 +35,7 @@ const Step7 = () => {
 
    return (
       <>
-         <h3 className="final-heading">{t.step7.heading}</h3>
+         <h2 className="final-heading">{t.step7.heading}</h2>
          <p style={{ textAlign: 'center', marginBottom: '20px', color: 'rgb(85, 85, 85)' }}>
             {t.step7.subtitle}
          </p>
